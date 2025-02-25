@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Settings -->
+    <string name="settings_display_title">Taispeáint</string>
+    <string name="settings_dark_mode">Modh Dorcha</string>
+    <string name="settings_auto_play">Meáin Uathoibríoch</string>
+    <string name="settings_language_title">Teanga</string>
+    <string name="settings_select_language">Roghnaigh Teanga</string>
+    <string name="settings_about_title">Eolas</string>
+    <string name="settings_privacy_policy">Polasaí Príobháideachta</string>
+    <string name="settings_terms">Téarmaí Seirbhíse</string>
+    <string name="settings_version">Leagan %1$s</string>
+
+    <!-- Languages -->
+    <string name="language_english">Béarla</string>
+    <string name="language_irish">Gaeilge</string>
+    <string name="language_french">Fraincis</string>
+    <string name="language_german">Gearmáinis</string>
+</resources> 

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.IREApplication" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/dark_charcoal</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
+        
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSecondaryVariant">@color/gold</item>
+        <item name="colorOnSecondary">@color/on_secondary</item>
+        
+        <!-- Status bar and Navigation bar -->
+        <item name="android:statusBarColor">@color/dark_charcoal</item>
+        <item name="android:navigationBarColor">@color/dark_charcoal</item>
+        
+        <!-- Background colors -->
+        <item name="android:windowBackground">@color/background</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+        <item name="colorOnBackground">@color/on_background</item>
+
+        <!-- Font customization -->
+        <item name="android:fontFamily">@font/barlow_condensed</item>
+        <item name="fontFamily">@font/barlow_condensed</item>
+
+        <!-- Toolbar style -->
+        <item name="toolbarStyle">@style/Widget.IREApplication.Toolbar</item>
+
+        <!-- Bottom Navigation style -->
+        <item name="bottomNavigationStyle">@style/Widget.IREApplication.BottomNavigation</item>
+    </style>
+
+    <!-- Toolbar style -->
+    <style name="Widget.IREApplication.Toolbar" parent="Widget.MaterialComponents.Toolbar.Surface">
+        <item name="android:background">@color/dark_charcoal</item>
+        <item name="titleTextColor">@color/gold</item>
+        <item name="navigationIconTint">@color/gold</item>
+        <item name="titleTextAppearance">@style/TextAppearance.IREApplication.Toolbar.Title</item>
+    </style>
+
+    <!-- Toolbar Title Text Appearance -->
+    <style name="TextAppearance.IREApplication.Toolbar.Title" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/barlow_condensed_medium</item>
+        <item name="android:fontFamily">@font/barlow_condensed_medium</item>
+    </style>
+
+    <!-- Bottom Navigation style -->
+    <style name="Widget.IREApplication.BottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">@color/dark_charcoal</item>
+        <item name="itemIconTint">@color/bottom_nav_item_color</item>
+        <item name="itemTextColor">@color/bottom_nav_item_color</item>
+        <item name="itemTextAppearanceActive">@style/TextAppearance.IREApplication.BottomNavigation.Active</item>
+        <item name="itemTextAppearanceInactive">@style/TextAppearance.IREApplication.BottomNavigation.Inactive</item>
+    </style>
+
+    <!-- Bottom Navigation Text Appearances -->
+    <style name="TextAppearance.IREApplication.BottomNavigation.Active" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="fontFamily">@font/barlow_condensed_medium</item>
+        <item name="android:fontFamily">@font/barlow_condensed_medium</item>
+    </style>
+
+    <style name="TextAppearance.IREApplication.BottomNavigation.Inactive" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="fontFamily">@font/barlow_condensed_regular</item>
+        <item name="android:fontFamily">@font/barlow_condensed_regular</item>
+    </style>
+
+    <style name="Theme.IREApplication.NoSplash" parent="Theme.IREApplication">
+        <item name="android:windowBackground">@color/dark_charcoal</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+</resources>

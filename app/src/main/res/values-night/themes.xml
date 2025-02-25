@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.IREApplication" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/dark_charcoal</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSecondaryVariant">@color/gold</item>
+        <item name="colorOnSecondary">@color/on_secondary</item>
+        <!-- Status bar and Navigation bar -->
+        <item name="android:statusBarColor">@color/dark_charcoal</item>
+        <item name="android:navigationBarColor">@color/dark_charcoal</item>
+        <!-- Background colors -->
+        <item name="android:windowBackground">@color/background</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+        <item name="colorOnBackground">@color/on_background</item>
+        <!-- Font customization -->
+        <item name="android:fontFamily">@font/barlow_condensed</item>
+        <item name="fontFamily">@font/barlow_condensed</item>
+        <!-- Toolbar style -->
+        <item name="toolbarStyle">@style/Widget.IREApplication.Toolbar</item>
+        <!-- Bottom Navigation style -->
+        <item name="bottomNavigationStyle">@style/Widget.IREApplication.BottomNavigation</item>
+        <!-- Enable window content transitions -->
+        <item name="android:windowActivityTransitions">true</item>
+        <!-- Customize your theme here. -->
+    </style>
+</resources>

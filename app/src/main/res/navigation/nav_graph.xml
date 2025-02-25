@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_tour">
+
+    <fragment
+        android:id="@+id/navigation_tour"
+        android:name="com.example.ireapplication.ui.tour.TourFragment"
+        android:label="Tour">
+        <action
+            android:id="@+id/action_tour_to_floor_exhibits"
+            app:destination="@id/floorExhibitsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_share"
+        android:name="com.example.ireapplication.ui.share.ShareFragment"
+        android:label="Share" />
+
+    <fragment
+        android:id="@+id/navigation_scan"
+        android:name="com.example.ireapplication.ui.scan.ScanQrFragment"
+        android:label="Scan QR" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.example.ireapplication.ui.settings.SettingsFragment"
+        android:label="Settings" />
+
+    <fragment
+        android:id="@+id/floorExhibitsFragment"
+        android:name="com.example.ireapplication.ui.tour.FloorExhibitsFragment"
+        android:label="Floor Exhibits">
+        <argument
+            android:name="floorId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_floor_exhibits_to_exhibit_detail"
+            app:destination="@id/exhibitDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/exhibitDetailFragment"
+        android:name="com.example.ireapplication.ui.tour.ExhibitDetailFragment"
+        android:label="Exhibit Detail">
+        <argument
+            android:name="exhibitId"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchResultsFragment"
+        android:name="com.example.ireapplication.ui.search.SearchResultsFragment"
+        android:label="Search Results">
+        <argument
+            android:name="query"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_search_results_to_exhibit_detail"
+            app:destination="@id/exhibitDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/scanQrFragment"
+        android:name="com.example.ireapplication.ui.scan.ScanQrFragment"
+        android:label="Scan QR Code"
+        tools:layout="@layout/fragment_scan_qr">
+        <action
+            android:id="@+id/action_scan_qr_to_exhibit_detail"
+            app:destination="@id/exhibitDetailFragment" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_global_search_results"
+        app:destination="@id/searchResultsFragment" />
+
+</navigation> 

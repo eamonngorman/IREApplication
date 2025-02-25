@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- TODO: Update with your actual app name -->
+    <string name="app_name">IREApplication</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <!-- TODO: Customize all settings strings according to your brand voice -->
+    <!-- Settings -->
+    <string name="settings_display_title">Display</string>
+    <string name="settings_dark_mode">Dark Mode</string>
+    <string name="settings_auto_play">Auto-play Media</string>
+    <string name="settings_language_title">Language</string>
+    <string name="settings_select_language">Select Language</string>
+    <string name="settings_about_title">About</string>
+    <string name="settings_privacy_policy">Privacy Policy</string>
+    <string name="settings_terms">Terms of Service</string>
+    <string name="settings_version">Version %1$s</string>
+
+    <!-- TODO: Add or remove languages based on your supported translations -->
+    <!-- Languages -->
+    <string name="language_english">English</string>
+    <string name="language_irish">Irish</string>
+    <string name="language_french">French</string>
+    <string name="language_german">German</string>
+
+    <string name="search">Search</string>
+</resources>
