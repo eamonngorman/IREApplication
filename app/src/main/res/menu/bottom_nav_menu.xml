@@ -2,21 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/navigation_tour"
-        android:icon="@android:drawable/ic_menu_compass"
+        android:icon="@drawable/ic_nav_tour"
         android:title="Tour" />
 
     <item
         android:id="@+id/navigation_share"
-        android:icon="@android:drawable/ic_menu_camera"
+        android:icon="@drawable/ic_nav_share"
         android:title="Share" />
 
     <item
         android:id="@+id/navigation_scan"
-        android:icon="@android:drawable/ic_menu_gallery"
+        android:icon="@drawable/ic_nav_scan"
         android:title="Scan QR" />
 
     <item
         android:id="@+id/navigation_settings"
-        android:icon="@android:drawable/ic_menu_manage"
+        android:icon="@drawable/ic_nav_settings"
         android:title="Settings" />
 </menu> 
