@@ -16,6 +16,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.example.ireapplication.BuildConfig
 import com.example.ireapplication.R
 import com.example.ireapplication.databinding.FragmentSettingsBinding
+import com.example.ireapplication.utils.TextScaleUtils
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
@@ -40,12 +41,22 @@ class SettingsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupVersionInfo()
+        setupFontSizeSlider()
         setupSettingsObserver()
         setupClickListeners()
     }
 
     private fun setupVersionInfo() {
         binding.versionText.text = "Version ${BuildConfig.VERSION_NAME}"
+    }
+
+    private fun setupFontSizeSlider() {
+        binding.fontSizeSlider.apply {
+            valueFrom = TextScaleUtils.MIN_SCALE
+            valueTo = TextScaleUtils.MAX_SCALE
+            stepSize = TextScaleUtils.STEP_SIZE
+            value = TextScaleUtils.quantizeScale(viewModel.settings.value.fontSizeScale)
+        }
     }
 
     private fun setupSettingsObserver() {
@@ -55,7 +66,12 @@ class SettingsFragment : Fragment() {
                     binding.exhibitNotificationsSwitch.isChecked = settings.exhibitNotificationsEnabled
                     binding.eventNotificationsSwitch.isChecked = settings.eventNotificationsEnabled
                     binding.darkModeSwitch.isChecked = settings.darkModeEnabled
-                    binding.fontSizeSlider.value = settings.fontSizeScale
+                    
+                    val currentValue = binding.fontSizeSlider.value
+                    val newValue = TextScaleUtils.quantizeScale(settings.fontSizeScale)
+                    if (currentValue != newValue) {
+                        binding.fontSizeSlider.value = newValue
+                    }
                 }
             }
         }
@@ -72,11 +88,17 @@ class SettingsFragment : Fragment() {
 
         binding.darkModeSwitch.setOnCheckedChangeListener { _, isChecked ->
             viewModel.toggleDarkMode(isChecked)
+            updateDarkMode(isChecked)
         }
 
         binding.fontSizeSlider.addOnChangeListener { _, value, fromUser ->
             if (fromUser) {
-                viewModel.updateFontSize(value)
+                val quantizedValue = TextScaleUtils.quantizeScale(value.coerceIn(TextScaleUtils.MIN_SCALE, TextScaleUtils.MAX_SCALE))
+                if (quantizedValue != value) {
+                    binding.fontSizeSlider.value = quantizedValue
+                }
+                viewModel.updateFontSize(quantizedValue)
+                activity?.let { TextScaleUtils.applyFontScale(it, quantizedValue) }
             }
         }
 
