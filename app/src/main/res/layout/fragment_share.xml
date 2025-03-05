@@ -21,20 +21,6 @@
         app:layout_constraintBottom_toTopOf="@id/controlsContainer"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/ireOverlayText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="IRE"
-        android:textColor="@android:color/white"
-        android:textSize="48sp"
-        android:textStyle="bold"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@id/overlayImage"
-        app:layout_constraintEnd_toEndOf="@id/overlayImage"
-        app:layout_constraintStart_toStartOf="@id/overlayImage"
-        app:layout_constraintTop_toTopOf="@id/overlayImage" />
-
     <LinearLayout
         android:id="@+id/controlsContainer"
         android:layout_width="match_parent"
@@ -86,60 +72,6 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="Gallery"
                 android:src="@drawable/ic_gallery" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/editControls"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Vertical Position"
-                android:textColor="@android:color/white"
-                android:textSize="16sp" />
-
-            <com.google.android.material.slider.Slider
-                android:id="@+id/verticalPositionSlider"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:valueFrom="0f"
-                android:valueTo="1f"
-                android:value="0.5f"
-                app:thumbTint="@color/gold"
-                app:trackTint="@color/gold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Horizontal Position"
-                android:textColor="@android:color/white"
-                android:textSize="16sp" />
-
-            <com.google.android.material.slider.Slider
-                android:id="@+id/horizontalPositionSlider"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:valueFrom="0f"
-                android:valueTo="1f"
-                android:value="0.5f"
-                app:thumbTint="@color/gold"
-                app:trackTint="@color/gold" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/shareButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Share"
-                app:backgroundTint="@color/gold"
-                android:textColor="@android:color/black" />
         </LinearLayout>
 
     </LinearLayout>

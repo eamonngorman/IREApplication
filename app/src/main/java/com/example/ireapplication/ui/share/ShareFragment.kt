@@ -64,7 +64,6 @@ class ShareFragment : Fragment() {
 
         setupButtons()
         setupObservers()
-        setupSlider()
         cameraExecutor = Executors.newSingleThreadExecutor()
     }
 
@@ -74,11 +73,6 @@ class ShareFragment : Fragment() {
                 // Hide camera preview and show captured image
                 binding.viewFinder.visibility = View.GONE
                 binding.overlayImage.visibility = View.VISIBLE
-                binding.ireOverlayText.visibility = View.VISIBLE
-                
-                // Show edit controls and hide camera controls
-                binding.cameraControls.visibility = View.GONE
-                binding.editControls.visibility = View.VISIBLE
                 
                 // Load the image using Glide
                 Glide.with(this)
@@ -88,40 +82,11 @@ class ShareFragment : Fragment() {
         }
     }
 
-    private fun setupSlider() {
-        binding.verticalPositionSlider.addOnChangeListener { _, value, fromUser ->
-            if (fromUser) {
-                updateOverlayPosition()
-            }
-        }
-
-        binding.horizontalPositionSlider.addOnChangeListener { _, value, fromUser ->
-            if (fromUser) {
-                updateOverlayPosition()
-            }
-        }
-    }
-
-    private fun updateOverlayPosition() {
-        val verticalValue = binding.verticalPositionSlider.value
-        val horizontalValue = binding.horizontalPositionSlider.value
-        
-        // Calculate positions based on slider values (0 = start/top, 1 = end/bottom)
-        val topMargin = (verticalValue * binding.overlayImage.height).toInt()
-        val startMargin = (horizontalValue * binding.overlayImage.width).toInt()
-        
-        val params = binding.ireOverlayText.layoutParams as ViewGroup.MarginLayoutParams
-        params.topMargin = topMargin
-        params.marginStart = startMargin
-        binding.ireOverlayText.layoutParams = params
-    }
-
     private fun setupButtons() {
         binding.apply {
             captureButton.setOnClickListener { takePhoto() }
             switchCameraButton.setOnClickListener { switchCamera() }
             galleryButton.setOnClickListener { /* TODO: Implement gallery selection */ }
-            shareButton.setOnClickListener { /* TODO: Implement share functionality */ }
         }
     }
 
