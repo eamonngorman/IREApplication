@@ -4,6 +4,10 @@ import android.Manifest
 import android.content.ContentValues
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Canvas
+import android.graphics.Matrix
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
@@ -18,8 +22,10 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
+import com.example.ireapplication.R
 import com.example.ireapplication.databinding.FragmentShareBinding
 import dagger.hilt.android.AndroidEntryPoint
+import java.io.ByteArrayOutputStream
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.ExecutorService
@@ -35,6 +41,7 @@ class ShareFragment : Fragment() {
     private var imageCapture: ImageCapture? = null
     private var cameraExecutor: ExecutorService? = null
     private var lensFacing = CameraSelector.LENS_FACING_BACK
+    private var isBannerAtTop = false
 
     private val requestCameraPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
@@ -123,9 +130,11 @@ class ShareFragment : Fragment() {
             captureButton.setOnClickListener { takePhoto() }
             switchCameraButton.setOnClickListener { switchCamera() }
             galleryButton.setOnClickListener { checkStoragePermissionAndOpenGallery() }
-            galleryButtonPreview.setOnClickListener { checkStoragePermissionAndOpenGallery() }
             shareButton.setOnClickListener { shareImage() }
             backButton.setOnClickListener { returnToCamera() }
+            bannerPositionSwitch.setOnCheckedChangeListener { _, isChecked ->
+                isBannerAtTop = isChecked
+            }
         }
     }
 
@@ -255,15 +264,114 @@ class ShareFragment : Fragment() {
 
     private fun shareImage() {
         viewModel.capturedImageUri.value?.let { uri ->
-            val shareIntent = Intent().apply {
-                action = Intent.ACTION_SEND
-                type = "image/*"
-                putExtra(Intent.EXTRA_STREAM, uri)
-                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            // Process image with banner
+            val processedImageUri = processImageWithBanner(uri)
+            processedImageUri?.let { processedUri ->
+                val shareIntent = Intent().apply {
+                    action = Intent.ACTION_SEND
+                    type = "image/*"
+                    putExtra(Intent.EXTRA_STREAM, processedUri)
+                    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                }
+                startActivity(Intent.createChooser(shareIntent, "Share Image"))
             }
-            startActivity(Intent.createChooser(shareIntent, "Share Image"))
         } ?: run {
             Toast.makeText(context, "No image to share", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun processImageWithBanner(imageUri: android.net.Uri): android.net.Uri? {
+        try {
+            // Load original image with correct orientation
+            val originalBitmap = MediaStore.Images.Media.getBitmap(requireContext().contentResolver, imageUri)
+            
+            // Get image orientation from MediaStore
+            val cursor = requireContext().contentResolver.query(
+                imageUri,
+                arrayOf(MediaStore.Images.Media.ORIENTATION),
+                null,
+                null,
+                null
+            )
+            
+            var orientation = 0
+            cursor?.use {
+                if (it.moveToFirst()) {
+                    orientation = it.getInt(0)
+                }
+            }
+            
+            // Create matrix for rotation
+            val matrix = Matrix()
+            when (orientation) {
+                90 -> matrix.postRotate(90f)
+                180 -> matrix.postRotate(180f)
+                270 -> matrix.postRotate(270f)
+            }
+            
+            // Create rotated bitmap
+            val rotatedBitmap = Bitmap.createBitmap(
+                originalBitmap,
+                0,
+                0,
+                originalBitmap.width,
+                originalBitmap.height,
+                matrix,
+                true
+            )
+            
+            // Load banner
+            val bannerBitmap = BitmapFactory.decodeResource(resources, R.drawable.banner_overlay)
+            
+            // Calculate banner dimensions to match image width while maintaining aspect ratio
+            val bannerWidth = rotatedBitmap.width
+            val bannerHeight = (bannerWidth * bannerBitmap.height.toFloat() / bannerBitmap.width.toFloat()).toInt()
+            
+            // Create new bitmap with banner
+            val combinedBitmap = Bitmap.createBitmap(
+                rotatedBitmap.width,
+                rotatedBitmap.height + bannerHeight,
+                Bitmap.Config.ARGB_8888
+            )
+            
+            val canvas = Canvas(combinedBitmap)
+            
+            // Draw original image
+            canvas.drawBitmap(rotatedBitmap, 0f, 0f, null)
+            
+            // Draw banner at top or bottom
+            val bannerY = if (isBannerAtTop) 0f else rotatedBitmap.height.toFloat()
+            canvas.drawBitmap(bannerBitmap, 0f, bannerY, null)
+            
+            // Save combined image
+            val name = SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS", Locale.US)
+                .format(System.currentTimeMillis())
+            val contentValues = ContentValues().apply {
+                put(MediaStore.MediaColumns.DISPLAY_NAME, name)
+                put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
+            }
+            
+            val outputUri = requireContext().contentResolver.insert(
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                contentValues
+            )
+            
+            outputUri?.let { uri ->
+                requireContext().contentResolver.openOutputStream(uri)?.use { outputStream ->
+                    combinedBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
+                }
+            }
+            
+            // Clean up
+            originalBitmap.recycle()
+            rotatedBitmap.recycle()
+            bannerBitmap.recycle()
+            combinedBitmap.recycle()
+            
+            return outputUri
+        } catch (e: Exception) {
+            Toast.makeText(context, "Failed to process image", Toast.LENGTH_SHORT).show()
+            return null
         }
     }
 
