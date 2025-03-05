@@ -113,6 +113,28 @@ class SettingsFragment : Fragment() {
         binding.termsButton.setOnClickListener {
             openWebPage(TERMS_URL)
         }
+
+        // Social Media Links
+        binding.homeWebsiteButton.setOnClickListener {
+            openWebPage(WEBSITE_URL)
+        }
+
+        binding.instagramButton.setOnClickListener {
+            openAppOrWebPage(INSTAGRAM_APP_URL, INSTAGRAM_WEB_URL)
+        }
+
+        binding.facebookButton.setOnClickListener {
+            openAppOrWebPage(FACEBOOK_APP_URL, FACEBOOK_WEB_URL)
+        }
+
+        // Review Links
+        binding.googleMapsButton.setOnClickListener {
+            openAppOrWebPage(MAPS_APP_URL, MAPS_WEB_URL)
+        }
+
+        binding.tripadvisorButton.setOnClickListener {
+            openWebPage(TRIPADVISOR_URL)
+        }
     }
 
     private fun showLanguageSelectionDialog() {
@@ -160,6 +182,32 @@ class SettingsFragment : Fragment() {
         )
     }
 
+    private fun openAppOrWebPage(appUrl: String, webUrl: String) {
+        try {
+            // For Facebook, try the app first
+            if (appUrl.startsWith("fb://")) {
+                try {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(FACEBOOK_APP_URL))
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
+                    return
+                } catch (e: Exception) {
+                    // If app fails, fall back to web
+                    openWebPage(FACEBOOK_WEB_URL)
+                    return
+                }
+            }
+            
+            // For other apps
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(appUrl))
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        } catch (e: Exception) {
+            // If app is not installed, open in web browser
+            openWebPage(webUrl)
+        }
+    }
+
     private fun openWebPage(url: String) {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         startActivity(intent)
@@ -173,5 +221,19 @@ class SettingsFragment : Fragment() {
     companion object {
         private const val PRIVACY_POLICY_URL = "https://www.internationalrugbyexperience.com/sites/default/files/2023-03/IRE%20Website%20Privacy%20Policy%20-%20Holmes%20PDF.pdf"
         private const val TERMS_URL = "https://www.internationalrugbyexperience.com/sites/default/files/2023-04/IRE%20Terms%20and%20Conditions%20-%20Holmes%2010_03_2023.pdf"
+        
+        // Social Media URLs
+        private const val WEBSITE_URL = "https://www.internationalrugbyexperience.com"
+        private const val INSTAGRAM_APP_URL = "instagram://user?username=internationalrugbyexperience"
+        private const val INSTAGRAM_WEB_URL = "https://www.instagram.com/internationalrugbyexperience"
+        private const val FACEBOOK_APP_URL = "fb://page/509668662840016"
+        private const val FACEBOOK_WEB_URL = "https://www.facebook.com/internationalrugbyexperience"
+        
+        // Review URLs
+        private const val TRIPADVISOR_URL = "https://www.tripadvisor.ie/Attraction_Review-g186621-d26245268-Reviews-International_Rugby_Experience_Limerick-Limerick_County_Limerick.html"
+        
+        // Directions URLs
+        private const val MAPS_APP_URL = "google.navigation:q=International+Rugby+Experience"
+        private const val MAPS_WEB_URL = "https://maps.google.com/?q=International+Rugby+Experience"
     }
 } 

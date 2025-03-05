@@ -168,16 +168,6 @@
                     android:gravity="center">
 
                     <ImageButton
-                        android:id="@+id/googleMapsButton"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_marginEnd="8dp"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        android:contentDescription="View on Google Maps"
-                        android:src="@drawable/ic_maps"
-                        android:tint="@color/gold"/>
-
-                    <ImageButton
                         android:id="@+id/tripadvisorButton"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
@@ -187,6 +177,31 @@
                         android:tint="@color/gold"/>
                 </LinearLayout>
             </LinearLayout>
+        </LinearLayout>
+
+        <!-- Directions Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Directions"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
+
+            <ImageButton
+                android:id="@+id/googleMapsButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Get Directions"
+                android:src="@drawable/ic_maps"
+                android:tint="@color/gold"/>
         </LinearLayout>
 
         <!-- Legal Section -->
