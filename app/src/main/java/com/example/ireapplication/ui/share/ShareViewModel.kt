@@ -9,10 +9,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ShareViewModel @Inject constructor() : ViewModel() {
-    private val _capturedImageUri = MutableLiveData<Uri>()
-    val capturedImageUri: LiveData<Uri> = _capturedImageUri
+    private val _capturedImageUri = MutableLiveData<Uri?>()
+    val capturedImageUri: LiveData<Uri?> = _capturedImageUri
 
-    fun setCapturedImageUri(uri: Uri) {
+    fun setCapturedImageUri(uri: Uri?) {
         _capturedImageUri.value = uri
     }
 

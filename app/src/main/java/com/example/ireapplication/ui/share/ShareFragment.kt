@@ -74,6 +74,10 @@ class ShareFragment : Fragment() {
                 binding.viewFinder.visibility = View.GONE
                 binding.overlayImage.visibility = View.VISIBLE
                 
+                // Switch controls
+                binding.cameraControls.visibility = View.GONE
+                binding.imageControls.visibility = View.VISIBLE
+                
                 // Load the image using Glide
                 Glide.with(this)
                     .load(it)
@@ -87,6 +91,9 @@ class ShareFragment : Fragment() {
             captureButton.setOnClickListener { takePhoto() }
             switchCameraButton.setOnClickListener { switchCamera() }
             galleryButton.setOnClickListener { /* TODO: Implement gallery selection */ }
+            galleryButtonPreview.setOnClickListener { /* TODO: Implement gallery selection */ }
+            shareButton.setOnClickListener { /* TODO: Implement share functionality */ }
+            backButton.setOnClickListener { returnToCamera() }
         }
     }
 
@@ -167,6 +174,19 @@ class ShareFragment : Fragment() {
             CameraSelector.LENS_FACING_BACK
         }
         startCamera()
+    }
+
+    private fun returnToCamera() {
+        // Show camera preview and hide captured image
+        binding.viewFinder.visibility = View.VISIBLE
+        binding.overlayImage.visibility = View.GONE
+        
+        // Switch controls
+        binding.cameraControls.visibility = View.VISIBLE
+        binding.imageControls.visibility = View.GONE
+        
+        // Clear the captured image URI
+        viewModel.setCapturedImageUri(null)
     }
 
     private fun allPermissionsGranted() = ContextCompat.checkSelfPermission(
