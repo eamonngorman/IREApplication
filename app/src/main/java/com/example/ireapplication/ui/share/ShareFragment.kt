@@ -15,6 +15,7 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.bumptech.glide.Glide
 import com.example.ireapplication.databinding.FragmentShareBinding
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
@@ -62,7 +63,57 @@ class ShareFragment : Fragment() {
         }
 
         setupButtons()
+        setupObservers()
+        setupSlider()
         cameraExecutor = Executors.newSingleThreadExecutor()
+    }
+
+    private fun setupObservers() {
+        viewModel.capturedImageUri.observe(viewLifecycleOwner) { uri ->
+            uri?.let {
+                // Hide camera preview and show captured image
+                binding.viewFinder.visibility = View.GONE
+                binding.overlayImage.visibility = View.VISIBLE
+                binding.ireOverlayText.visibility = View.VISIBLE
+                
+                // Show edit controls and hide camera controls
+                binding.cameraControls.visibility = View.GONE
+                binding.editControls.visibility = View.VISIBLE
+                
+                // Load the image using Glide
+                Glide.with(this)
+                    .load(it)
+                    .into(binding.overlayImage)
+            }
+        }
+    }
+
+    private fun setupSlider() {
+        binding.verticalPositionSlider.addOnChangeListener { _, value, fromUser ->
+            if (fromUser) {
+                updateOverlayPosition()
+            }
+        }
+
+        binding.horizontalPositionSlider.addOnChangeListener { _, value, fromUser ->
+            if (fromUser) {
+                updateOverlayPosition()
+            }
+        }
+    }
+
+    private fun updateOverlayPosition() {
+        val verticalValue = binding.verticalPositionSlider.value
+        val horizontalValue = binding.horizontalPositionSlider.value
+        
+        // Calculate positions based on slider values (0 = start/top, 1 = end/bottom)
+        val topMargin = (verticalValue * binding.overlayImage.height).toInt()
+        val startMargin = (horizontalValue * binding.overlayImage.width).toInt()
+        
+        val params = binding.ireOverlayText.layoutParams as ViewGroup.MarginLayoutParams
+        params.topMargin = topMargin
+        params.marginStart = startMargin
+        binding.ireOverlayText.layoutParams = params
     }
 
     private fun setupButtons() {
@@ -70,6 +121,7 @@ class ShareFragment : Fragment() {
             captureButton.setOnClickListener { takePhoto() }
             switchCameraButton.setOnClickListener { switchCamera() }
             galleryButton.setOnClickListener { /* TODO: Implement gallery selection */ }
+            shareButton.setOnClickListener { /* TODO: Implement share functionality */ }
         }
     }
 
@@ -130,8 +182,10 @@ class ShareFragment : Fragment() {
             ContextCompat.getMainExecutor(requireContext()),
             object : ImageCapture.OnImageSavedCallback {
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
-                    // TODO: Apply filter and show share options
-                    Toast.makeText(context, "Photo captured!", Toast.LENGTH_SHORT).show()
+                    output.savedUri?.let { uri ->
+                        viewModel.setCapturedImageUri(uri)
+                        Toast.makeText(context, "Photo captured!", Toast.LENGTH_SHORT).show()
+                    }
                 }
 
                 override fun onError(exc: ImageCaptureException) {

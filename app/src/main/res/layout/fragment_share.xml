@@ -17,54 +17,130 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:scaleType="fitCenter"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/controlsContainer"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ireOverlayText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="IRE"
+        android:textColor="@android:color/white"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/overlayImage"
+        app:layout_constraintEnd_toEndOf="@id/overlayImage"
+        app:layout_constraintStart_toStartOf="@id/overlayImage"
+        app:layout_constraintTop_toTopOf="@id/overlayImage" />
 
     <LinearLayout
         android:id="@+id/controlsContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/dark_charcoal"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <ImageButton
-            android:id="@+id/switchCameraButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center_vertical"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Switch Camera"
-            android:src="@drawable/ic_switch_camera" />
-
-        <Space
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/cameraControls"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:orientation="horizontal">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/captureButton"
-            android:layout_width="wrap_content"
+            <ImageButton
+                android:id="@+id/switchCameraButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_vertical"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Switch Camera"
+                android:src="@drawable/ic_switch_camera" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/captureButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="Take Photo"
+                app:backgroundTint="@color/gold"
+                app:tint="@color/black" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/galleryButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_vertical"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Gallery"
+                android:src="@drawable/ic_gallery" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/editControls"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:contentDescription="Take Photo"
-            app:backgroundTint="@color/gold"
-            app:tint="@color/black" />
+            android:orientation="vertical"
+            android:visibility="gone">
 
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vertical Position"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
 
-        <ImageButton
-            android:id="@+id/galleryButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center_vertical"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Gallery"
-            android:src="@drawable/ic_gallery" />
+            <com.google.android.material.slider.Slider
+                android:id="@+id/verticalPositionSlider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:valueFrom="0f"
+                android:valueTo="1f"
+                android:value="0.5f"
+                app:thumbTint="@color/gold"
+                app:trackTint="@color/gold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Horizontal Position"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/horizontalPositionSlider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:valueFrom="0f"
+                android:valueTo="1f"
+                android:value="0.5f"
+                app:thumbTint="@color/gold"
+                app:trackTint="@color/gold" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/shareButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Share"
+                app:backgroundTint="@color/gold"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
 
     </LinearLayout>
 
