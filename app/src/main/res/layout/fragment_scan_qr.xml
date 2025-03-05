@@ -41,7 +41,7 @@
         android:layout_height="48dp"
         android:layout_margin="16dp"
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="Toggle Flashlight"
+        android:contentDescription="@string/cd_toggle_flashlight"
         android:padding="12dp"
         android:src="@drawable/ic_flashlight_off"
         android:tint="@color/white"

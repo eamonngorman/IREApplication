@@ -1,8 +1,10 @@
 package com.example.ireapplication.data
 
+import android.content.Context
 import com.example.ireapplication.R
-import com.example.ireapplication.data.models.Floor
 import com.example.ireapplication.data.models.Exhibit
+import com.example.ireapplication.data.models.Floor
+import com.example.ireapplication.data.models.FloorWithExhibits
 
 object SampleDataProvider {
     // Floor level constants
@@ -15,253 +17,287 @@ object SampleDataProvider {
         const val SIXTH = 6
     }
 
-    fun getFloors(): List<Floor> = listOf(
-        Floor(
-            name = "GENERAL",
-            description = "General exhibits and information",
-            imageResourceId = R.drawable.floor_general,
-            level = FloorLevel.GENERAL,
-            isGeneral = true
-        ),
-        Floor(
-            name = "LEGENDARY BEGINNINGS",
-            description = "First Floor - Origins and Grassroots",
-            imageResourceId = R.drawable.floor_first,
-            level = FloorLevel.FIRST,
-            isGeneral = false
-        ),
-        Floor(
-            name = "LEGENDARY SKILLS",
-            description = "Second Floor - Skills and Techniques",
-            imageResourceId = R.drawable.floor_second,
-            level = FloorLevel.SECOND,
-            isGeneral = false
-        ),
-        Floor(
-            name = "LEGENDARY TEAMS",
-            description = "Third Floor - Team and Leadership",
-            imageResourceId = R.drawable.floor_third,
-            level = FloorLevel.THIRD,
-            isGeneral = false
-        ),
-        Floor(
-            name = "LEGENDARY NATIONS",
-            description = "Fourth Floor - International Rugby",
-            imageResourceId = R.drawable.floor_fourth,
-            level = FloorLevel.FOURTH,
-            isGeneral = false
-        ),
-        Floor(
-            name = "HALL OF LEGENDS",
-            description = "Sixth Floor - Celebrating Rugby's Greatest",
-            imageResourceId = R.drawable.floor_sixth,
-            level = FloorLevel.SIXTH,
-            isGeneral = false
-        )
-    )
+    private var sampleData: List<FloorWithExhibits>? = null
 
-    fun getExhibits(): List<Exhibit> = listOf(
-        // General Exhibits
-        Exhibit(
-            name = "Tunnel Introduction Video",
-            shortDescription = "Welcome to rugby",
-            fullDescription = "An immersive introduction to the world of rugby, setting the stage for your journey through this incredible sport.",
-            imageResourceId = R.drawable.exhibit_tunnel,
-            floorId = FloorLevel.GENERAL
-        ),
-        Exhibit(
-            name = "Building Architecture",
-            shortDescription = "Building design",
-            fullDescription = "Discover the unique design and structure of the International Rugby Experience building.",
-            imageResourceId = R.drawable.exhibit_architecture,
-            floorId = FloorLevel.GENERAL
-        ),
-        Exhibit(
-            name = "Legendary Encounters",
-            shortDescription = "Historic moments",
-            fullDescription = "Experience legendary moments that have defined the sport of rugby.",
-            imageResourceId = R.drawable.exhibit_encounters,
-            floorId = FloorLevel.GENERAL
-        ),
-        // Floor 1 Exhibits - LEGENDARY BEGINNINGS
-        Exhibit(
-            name = "Global Grassroots",
-            shortDescription = "Community impact",
-            fullDescription = "Explore how rugby shapes communities and develops grassroots initiatives worldwide.",
-            imageResourceId = R.drawable.exhibit_grassroots,
-            floorId = FloorLevel.FIRST
-        ),
-        Exhibit(
-            name = "Grassroots Initiatives Tablets",
-            shortDescription = "Interactive learning",
-            fullDescription = "Interactive tablets showcasing grassroots rugby initiatives from around the world.",
-            imageResourceId = R.drawable.exhibit_tablets,
-            floorId = FloorLevel.FIRST
-        ),
-        Exhibit(
-            name = "Legendary Beginnings",
-            shortDescription = "Origins of rugby",
-            fullDescription = "Discover the origins and early development of rugby.",
-            imageResourceId = R.drawable.exhibit_beginnings,
-            floorId = FloorLevel.FIRST
-        ),
-        Exhibit(
-            name = "Ball of Fame",
-            shortDescription = "Historic balls",
-            fullDescription = "A showcase of historic rugby balls that tell the story of the game's evolution.",
-            imageResourceId = R.drawable.exhibit_bof,
-            floorId = FloorLevel.FIRST
-        ),
-        // Floor 2 Exhibits - LEGENDARY SKILLS
-        Exhibit(
-            name = "Handling Skills",
-            shortDescription = "Ball handling",
-            fullDescription = "Master the art of handling the rugby ball with precision and control.",
-            imageResourceId = R.drawable.exhibit_handling,
-            floorId = FloorLevel.SECOND
-        ),
-        Exhibit(
-            name = "Strength & Technique",
-            shortDescription = "Physical skills",
-            fullDescription = "Develop your strength and technique for scrummaging, tackling, and rucking.",
-            imageResourceId = R.drawable.exhibit_strength,
-            floorId = FloorLevel.SECOND
-        ),
-        Exhibit(
-            name = "Running Skills",
-            shortDescription = "Movement",
-            fullDescription = "Learn the essential running techniques for different positions and situations.",
-            imageResourceId = R.drawable.exhibit_running,
-            floorId = FloorLevel.SECOND
-        ),
-        Exhibit(
-            name = "Kicking Skills",
-            shortDescription = "Ball control",
-            fullDescription = "Perfect your kicking technique for various game situations.",
-            imageResourceId = R.drawable.exhibit_kicking,
-            floorId = FloorLevel.SECOND
-        ),
-        Exhibit(
-            name = "Laws of the Game with Nigel Owens",
-            shortDescription = "Rules presentation",
-            fullDescription = "Learn the laws of rugby through an interactive presentation with legendary referee Nigel Owens.",
-            imageResourceId = R.drawable.exhibit_laws,
-            floorId = FloorLevel.SECOND
-        ),
-        Exhibit(
-            name = "Be the Referee",
-            shortDescription = "Decision making",
-            fullDescription = "Test your knowledge of rugby laws by making real-time refereeing decisions.",
-            imageResourceId = R.drawable.exhibit_referee,
-            floorId = FloorLevel.SECOND
-        ),
-        Exhibit(
-            name = "Find your Position",
-            shortDescription = "Player roles",
-            fullDescription = "Discover which rugby position best suits your skills and attributes.",
-            imageResourceId = R.drawable.exhibit_fyp,
-            floorId = FloorLevel.SECOND
-        ),
-        Exhibit(
-            name = "Measure Up",
-            shortDescription = "Player comparison",
-            fullDescription = "Compare yourself to rugby's elite athletes.",
-            imageResourceId = R.drawable.exhibit_measure,
-            floorId = FloorLevel.SECOND
-        ),
-        // Floor 3 Exhibits - LEGENDARY TEAMS
-        Exhibit(
-            name = "Whole Squad",
-            shortDescription = "Team dynamics",
-            fullDescription = "Understanding the importance of every team member in rugby.",
-            imageResourceId = R.drawable.exhibit_wholesquad,
-            floorId = FloorLevel.THIRD
-        ),
-        Exhibit(
-            name = "Legendary Leaders",
-            shortDescription = "Rugby leadership",
-            fullDescription = "Discover what makes great rugby leaders and how they inspire their teams.",
-            imageResourceId = R.drawable.exhibit_leadership,
-            floorId = FloorLevel.THIRD
-        ),
-        Exhibit(
-            name = "Teamwork on the Pitch",
-            shortDescription = "Team coordination",
-            fullDescription = "Experience how teams work together during crucial moments in the game.",
-            imageResourceId = R.drawable.error_image,
-            floorId = FloorLevel.THIRD
-        ),
-        Exhibit(
-            name = "Team Spirit Lockers",
-            shortDescription = "Team culture",
-            fullDescription = "Explore the unique traditions and spirit of rugby teams through their locker rooms.",
-            imageResourceId = R.drawable.error_image,
-            floorId = FloorLevel.THIRD
-        ),
-        Exhibit(
-            name = "Club Culture Wall",
-            shortDescription = "Club traditions",
-            fullDescription = "Discover the rich traditions and cultures of rugby clubs worldwide.",
-            imageResourceId = R.drawable.exhibit_clubculture,
-            floorId = FloorLevel.THIRD
-        ),
-        // Floor 4 Exhibits - LEGENDARY NATIONS
-        Exhibit(
-            name = "Legendary Nations Tablets",
-            shortDescription = "National teams",
-            fullDescription = "Interactive exploration of rugby's greatest national teams and their achievements.",
-            imageResourceId = R.drawable.error_image,
-            floorId = FloorLevel.FOURTH
-        ),
-        Exhibit(
-            name = "Global Growth Touchscreens",
-            shortDescription = "Rugby worldwide",
-            fullDescription = "Track the global expansion and development of rugby through interactive displays.",
-            imageResourceId = R.drawable.exhibit_globalgrowth,
-            floorId = FloorLevel.FOURTH
-        ),
-        Exhibit(
-            name = "Unity & Respect Wall",
-            shortDescription = "Rugby values",
-            fullDescription = "Celebrating rugby's core values of unity and respect across nations.",
-            imageResourceId = R.drawable.exhibit_unity,
-            floorId = FloorLevel.FOURTH
-        ),
-        Exhibit(
-            name = "The Cube",
-            shortDescription = "Immersive experience",
-            fullDescription = "An immersive audio-visual experience showcasing international rugby's greatest moments.",
-            imageResourceId = R.drawable.exhibit_cube,
-            floorId = FloorLevel.FOURTH
-        ),
-        Exhibit(
-            name = "Haka Presentation",
-            shortDescription = "Cultural tradition",
-            fullDescription = "Experience the power and significance of the Haka in rugby.",
-            imageResourceId = R.drawable.exhibit_haka,
-            floorId = FloorLevel.FOURTH
-        ),
-        // Floor 6 Exhibits - HALL OF LEGENDS
-        Exhibit(
-            name = "Limerick Skyline QR Tour",
-            shortDescription = "City views",
-            fullDescription = "Explore Limerick's landmarks through an interactive QR-guided tour of the skyline.",
-            imageResourceId = R.drawable.exhibit_limerickskyline,
-            floorId = FloorLevel.SIXTH
-        ),
-        Exhibit(
-            name = "Wall of Fame",
-            shortDescription = "Rugby legends",
-            fullDescription = "Honor wall celebrating the greatest legends of rugby.",
-            imageResourceId = R.drawable.exhibit_wall,
-            floorId = FloorLevel.SIXTH
-        ),
-        Exhibit(
-            name = "Hall of Fame Digital Archives",
-            shortDescription = "Historic archives",
-            fullDescription = "Digital collection preserving rugby's most memorable moments and legendary figures.",
-            imageResourceId = R.drawable.exhibit_archives,
-            floorId = FloorLevel.SIXTH
+    fun getFloors(context: Context): List<Floor> {
+        return getSampleFloors(context).map { it.floor }
+    }
+
+    fun getExhibits(context: Context): List<Exhibit> {
+        return getSampleFloors(context).flatMap { it.exhibits }
+    }
+
+    fun getSampleFloors(context: Context): List<FloorWithExhibits> {
+        // Cache the sample data to avoid recreating it every time
+        if (sampleData != null) {
+            return sampleData!!
+        }
+
+        sampleData = listOf(
+            FloorWithExhibits(
+                floor = Floor(
+                    id = 1,
+                    name = context.getString(R.string.floor_general),
+                    description = context.getString(R.string.floor_general_desc),
+                    level = FloorLevel.GENERAL,
+                    imageResourceId = R.drawable.floor_general
+                ),
+                exhibits = listOf(
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_tunnel_intro),
+                        shortDescription = context.getString(R.string.exhibit_tunnel_intro_short),
+                        fullDescription = context.getString(R.string.exhibit_tunnel_intro_full),
+                        imageResourceId = R.drawable.exhibit_tunnel2,
+                        floorId = FloorLevel.GENERAL
+                    ),
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_building_architecture),
+                        shortDescription = context.getString(R.string.exhibit_building_architecture_short),
+                        fullDescription = context.getString(R.string.exhibit_building_architecture_full),
+                        imageResourceId = R.drawable.exhibit_architecture,
+                        floorId = FloorLevel.GENERAL
+                    ),
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_legendary_encounters),
+                        shortDescription = context.getString(R.string.exhibit_legendary_encounters_short),
+                        fullDescription = context.getString(R.string.exhibit_legendary_encounters_full),
+                        imageResourceId = R.drawable.exhibit_encounters,
+                        floorId = FloorLevel.GENERAL
+                    )
+                )
+            ),
+            FloorWithExhibits(
+                floor = Floor(
+                    id = 2,
+                    name = context.getString(R.string.floor_legendary_beginnings),
+                    description = context.getString(R.string.floor_legendary_beginnings_desc),
+                    level = FloorLevel.FIRST,
+                    imageResourceId = R.drawable.floor_first
+                ),
+                exhibits = listOf(
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_global_grassroots),
+                        shortDescription = context.getString(R.string.exhibit_global_grassroots_short),
+                        fullDescription = context.getString(R.string.exhibit_global_grassroots_full),
+                        imageResourceId = R.drawable.exhibit_globalgrowth,
+                        floorId = FloorLevel.FIRST
+                    ),
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_grassroots_tablets),
+                        shortDescription = context.getString(R.string.exhibit_grassroots_tablets_short),
+                        fullDescription = context.getString(R.string.exhibit_grassroots_tablets_full),
+                        imageResourceId = R.drawable.exhibit_tablets,
+                        floorId = FloorLevel.FIRST
+                    ),
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_legendary_beginnings),
+                        shortDescription = context.getString(R.string.exhibit_legendary_beginnings_short),
+                        fullDescription = context.getString(R.string.exhibit_legendary_beginnings_full),
+                        imageResourceId = R.drawable.exhibit_beginnings,
+                        floorId = FloorLevel.FIRST
+                    ),
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_ball_of_fame),
+                        shortDescription = context.getString(R.string.exhibit_ball_of_fame_short),
+                        fullDescription = context.getString(R.string.exhibit_ball_of_fame_full),
+                        imageResourceId = R.drawable.exhibit_bof,
+                        floorId = FloorLevel.FIRST
+                    )
+                )
+            ),
+            FloorWithExhibits(
+                floor = Floor(
+                    id = 3,
+                    name = context.getString(R.string.floor_legendary_skills),
+                    description = context.getString(R.string.floor_legendary_skills_desc),
+                    level = FloorLevel.SECOND,
+                    imageResourceId = R.drawable.floor_second
+                ),
+                exhibits = listOf(
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_handling_skills),
+                        shortDescription = context.getString(R.string.exhibit_handling_skills_short),
+                        fullDescription = context.getString(R.string.exhibit_handling_skills_full),
+                        imageResourceId = R.drawable.exhibit_handling,
+                        floorId = FloorLevel.SECOND
+                    ),
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_strength_technique),
+                        shortDescription = context.getString(R.string.exhibit_strength_technique_short),
+                        fullDescription = context.getString(R.string.exhibit_strength_technique_full),
+                        imageResourceId = R.drawable.exhibit_strength,
+                        floorId = FloorLevel.SECOND
+                    ),
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_running_skills),
+                        shortDescription = context.getString(R.string.exhibit_running_skills_short),
+                        fullDescription = context.getString(R.string.exhibit_running_skills_full),
+                        imageResourceId = R.drawable.exhibit_running,
+                        floorId = FloorLevel.SECOND
+                    ),
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_kicking_skills),
+                        shortDescription = context.getString(R.string.exhibit_kicking_skills_short),
+                        fullDescription = context.getString(R.string.exhibit_kicking_skills_full),
+                        imageResourceId = R.drawable.exhibit_kicking,
+                        floorId = FloorLevel.SECOND
+                    ),
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_laws_game),
+                        shortDescription = context.getString(R.string.exhibit_laws_game_short),
+                        fullDescription = context.getString(R.string.exhibit_laws_game_full),
+                        imageResourceId = R.drawable.exhibit_laws,
+                        floorId = FloorLevel.SECOND
+                    ),
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_be_referee),
+                        shortDescription = context.getString(R.string.exhibit_be_referee_short),
+                        fullDescription = context.getString(R.string.exhibit_be_referee_full),
+                        imageResourceId = R.drawable.exhibit_referee,
+                        floorId = FloorLevel.SECOND
+                    ),
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_find_position),
+                        shortDescription = context.getString(R.string.exhibit_find_position_short),
+                        fullDescription = context.getString(R.string.exhibit_find_position_full),
+                        imageResourceId = R.drawable.exhibit_wholesquad,
+                        floorId = FloorLevel.SECOND
+                    ),
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_measure_up),
+                        shortDescription = context.getString(R.string.exhibit_measure_up_short),
+                        fullDescription = context.getString(R.string.exhibit_measure_up_full),
+                        imageResourceId = R.drawable.exhibit_measure,
+                        floorId = FloorLevel.SECOND
+                    )
+                )
+            ),
+            FloorWithExhibits(
+                floor = Floor(
+                    id = 4,
+                    name = context.getString(R.string.floor_legendary_teams),
+                    description = context.getString(R.string.floor_legendary_teams_desc),
+                    level = FloorLevel.THIRD,
+                    imageResourceId = R.drawable.floor_third
+                ),
+                exhibits = listOf(
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_whole_squad),
+                        shortDescription = context.getString(R.string.exhibit_whole_squad_short),
+                        fullDescription = context.getString(R.string.exhibit_whole_squad_full),
+                        imageResourceId = R.drawable.exhibit_wholesquad,
+                        floorId = FloorLevel.THIRD
+                    ),
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_legendary_leaders),
+                        shortDescription = context.getString(R.string.exhibit_legendary_leaders_short),
+                        fullDescription = context.getString(R.string.exhibit_legendary_leaders_full),
+                        imageResourceId = R.drawable.exhibit_leadership,
+                        floorId = FloorLevel.THIRD
+                    ),
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_teamwork_pitch),
+                        shortDescription = context.getString(R.string.exhibit_teamwork_pitch_short),
+                        fullDescription = context.getString(R.string.exhibit_teamwork_pitch_full),
+                        imageResourceId = R.drawable.error_image,
+                        floorId = FloorLevel.THIRD
+                    ),
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_team_spirit),
+                        shortDescription = context.getString(R.string.exhibit_team_spirit_short),
+                        fullDescription = context.getString(R.string.exhibit_team_spirit_full),
+                        imageResourceId = R.drawable.error_image,
+                        floorId = FloorLevel.THIRD
+                    ),
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_club_culture),
+                        shortDescription = context.getString(R.string.exhibit_club_culture_short),
+                        fullDescription = context.getString(R.string.exhibit_club_culture_full),
+                        imageResourceId = R.drawable.exhibit_clubculture,
+                        floorId = FloorLevel.THIRD
+                    )
+                )
+            ),
+            FloorWithExhibits(
+                floor = Floor(
+                    id = 5,
+                    name = context.getString(R.string.floor_legendary_nations),
+                    description = context.getString(R.string.floor_legendary_nations_desc),
+                    level = FloorLevel.FOURTH,
+                    imageResourceId = R.drawable.floor_fourth
+                ),
+                exhibits = listOf(
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_legendary_nations_tablets),
+                        shortDescription = context.getString(R.string.exhibit_legendary_nations_tablets_short),
+                        fullDescription = context.getString(R.string.exhibit_legendary_nations_tablets_full),
+                        imageResourceId = R.drawable.error_image,
+                        floorId = FloorLevel.FOURTH
+                    ),
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_global_growth),
+                        shortDescription = context.getString(R.string.exhibit_global_growth_short),
+                        fullDescription = context.getString(R.string.exhibit_global_growth_full),
+                        imageResourceId = R.drawable.exhibit_globalgrowth,
+                        floorId = FloorLevel.FOURTH
+                    ),
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_unity_respect),
+                        shortDescription = context.getString(R.string.exhibit_unity_respect_short),
+                        fullDescription = context.getString(R.string.exhibit_unity_respect_full),
+                        imageResourceId = R.drawable.exhibit_unity,
+                        floorId = FloorLevel.FOURTH
+                    ),
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_cube),
+                        shortDescription = context.getString(R.string.exhibit_cube_short),
+                        fullDescription = context.getString(R.string.exhibit_cube_full),
+                        imageResourceId = R.drawable.exhibit_cube,
+                        floorId = FloorLevel.FOURTH
+                    )
+                )
+            ),
+            FloorWithExhibits(
+                floor = Floor(
+                    id = 7,
+                    name = context.getString(R.string.floor_hall_of_legends),
+                    description = context.getString(R.string.floor_hall_of_legends_desc),
+                    level = FloorLevel.SIXTH,
+                    imageResourceId = R.drawable.floor_sixth
+                ),
+                exhibits = listOf(
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_haka),
+                        shortDescription = context.getString(R.string.exhibit_haka_short),
+                        fullDescription = context.getString(R.string.exhibit_haka_full),
+                        imageResourceId = R.drawable.exhibit_haka,
+                        floorId = FloorLevel.SIXTH
+                    ),
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_limerick_skyline),
+                        shortDescription = context.getString(R.string.exhibit_limerick_skyline_short),
+                        fullDescription = context.getString(R.string.exhibit_limerick_skyline_full),
+                        imageResourceId = R.drawable.exhibit_limerickskyline,
+                        floorId = FloorLevel.SIXTH
+                    ),
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_wall_of_fame),
+                        shortDescription = context.getString(R.string.exhibit_wall_of_fame_short),
+                        fullDescription = context.getString(R.string.exhibit_wall_of_fame_full),
+                        imageResourceId = R.drawable.exhibit_wall,
+                        floorId = FloorLevel.SIXTH
+                    ),
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_hall_of_fame),
+                        shortDescription = context.getString(R.string.exhibit_hall_of_fame_short),
+                        fullDescription = context.getString(R.string.exhibit_hall_of_fame_full),
+                        imageResourceId = R.drawable.exhibit_archives,
+                        floorId = FloorLevel.SIXTH
+                    )
+                )
+            )
         )
-    )
+
+        return sampleData!!
+    }
 } 

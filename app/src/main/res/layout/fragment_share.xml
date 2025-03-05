@@ -42,7 +42,7 @@
                 android:layout_height="48dp"
                 android:layout_gravity="center_vertical"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Switch Camera"
+                android:contentDescription="@string/cd_switch_camera"
                 android:src="@drawable/ic_switch_camera" />
 
             <Space
@@ -55,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:contentDescription="Take Photo"
+                android:contentDescription="@string/cd_take_photo"
                 app:backgroundTint="@color/gold"
                 app:tint="@color/black" />
 
@@ -70,7 +70,7 @@
                 android:layout_height="48dp"
                 android:layout_gravity="center_vertical"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Gallery"
+                android:contentDescription="@string/cd_gallery"
                 android:src="@drawable/ic_gallery" />
         </LinearLayout>
 
@@ -95,7 +95,7 @@
                     android:id="@+id/bannerPositionSwitch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Banner at Top"
+                    android:text="@string/banner_at_top"
                     android:textColor="@android:color/white" />
 
                 <com.google.android.material.button.MaterialButton
@@ -104,7 +104,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:backgroundTint="@color/gold"
-                    android:text="Share"
+                    android:text="@string/share"
                     android:textColor="@android:color/black" />
 
                 <ImageButton
@@ -113,7 +113,7 @@
                     android:layout_height="48dp"
                     android:layout_marginStart="16dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="Back to camera"
+                    android:contentDescription="@string/cd_back_to_camera"
                     android:src="@drawable/ic_back"
                     android:tint="@android:color/white" />
 

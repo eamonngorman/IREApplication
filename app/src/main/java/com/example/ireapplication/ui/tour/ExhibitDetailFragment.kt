@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.example.ireapplication.R
 import com.example.ireapplication.databinding.FragmentExhibitDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -75,13 +76,13 @@ class ExhibitDetailFragment : Fragment() {
         if (exhibit != null) {
             val emailIntent = Intent(Intent.ACTION_SEND).apply {
                 type = "message/rfc822"
-                putExtra(Intent.EXTRA_EMAIL, arrayOf("eamonngorman21@gmail.com"))
-                putExtra(Intent.EXTRA_SUBJECT, "Feedback: ${exhibit.name}")
-                putExtra(Intent.EXTRA_TEXT, "Please provide your feedback about ${exhibit.name}:\n\n")
+                putExtra(Intent.EXTRA_EMAIL, arrayOf(getString(R.string.feedback_email)))
+                putExtra(Intent.EXTRA_SUBJECT, getString(R.string.feedback_subject, exhibit.name))
+                putExtra(Intent.EXTRA_TEXT, getString(R.string.feedback_body, exhibit.name))
             }
 
             try {
-                startActivity(Intent.createChooser(emailIntent, "Send feedback via:"))
+                startActivity(Intent.createChooser(emailIntent, getString(R.string.feedback_chooser_title)))
             } catch (e: Exception) {
                 // Handle case where no email app is available
                 // TODO: Show error message to user

@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Notifications"
+            android:text="@string/settings_notifications"
             android:textAppearance="?attr/textAppearanceHeadline6"
             android:layout_marginBottom="8dp"/>
 
@@ -22,21 +22,21 @@
             android:id="@+id/exhibitNotificationsSwitch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Exhibit Notifications"
+            android:text="@string/settings_exhibit_notifications"
             android:layout_marginBottom="8dp"/>
 
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/eventNotificationsSwitch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Event Notifications"
+            android:text="@string/settings_event_notifications"
             android:layout_marginBottom="16dp"/>
 
         <!-- Appearance Section -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Appearance"
+            android:text="@string/settings_appearance"
             android:textAppearance="?attr/textAppearanceHeadline6"
             android:layout_marginBottom="8dp"/>
 
@@ -44,13 +44,13 @@
             android:id="@+id/darkModeSwitch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dark Mode"
+            android:text="@string/settings_dark_mode"
             android:layout_marginBottom="8dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Font Size"
+            android:text="@string/settings_font_size"
             android:layout_marginBottom="4dp"/>
 
         <com.google.android.material.slider.Slider
@@ -67,7 +67,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Language"
+            android:text="@string/settings_language_title"
             android:textAppearance="?attr/textAppearanceHeadline6"
             android:layout_marginBottom="8dp"/>
 
@@ -75,7 +75,7 @@
             android:id="@+id/languageButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Select Language"
+            android:text="@string/settings_select_language"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_marginBottom="16dp"/>
 
@@ -83,7 +83,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Connect With Us"
+            android:text="@string/settings_connect"
             android:textAppearance="?attr/textAppearanceHeadline6"
             android:layout_marginBottom="8dp"/>
 
@@ -105,7 +105,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Social Media"
+                    android:text="@string/settings_social_media"
                     android:textAppearance="?attr/textAppearanceCaption"
                     android:layout_marginBottom="8dp"/>
 
@@ -121,7 +121,7 @@
                         android:layout_height="48dp"
                         android:layout_marginEnd="8dp"
                         android:background="?attr/selectableItemBackgroundBorderless"
-                        android:contentDescription="Visit Website"
+                        android:contentDescription="@string/cd_visit_website"
                         android:src="@drawable/ic_web"
                         android:tint="@color/gold"/>
 
@@ -131,7 +131,7 @@
                         android:layout_height="48dp"
                         android:layout_marginEnd="8dp"
                         android:background="?attr/selectableItemBackgroundBorderless"
-                        android:contentDescription="Follow on Instagram"
+                        android:contentDescription="@string/cd_follow_instagram"
                         android:src="@drawable/ic_instagram"
                         android:tint="@color/gold"/>
 
@@ -140,7 +140,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="?attr/selectableItemBackgroundBorderless"
-                        android:contentDescription="Follow on Facebook"
+                        android:contentDescription="@string/cd_follow_facebook"
                         android:src="@drawable/ic_facebook"
                         android:tint="@color/gold"/>
                 </LinearLayout>
@@ -157,7 +157,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Review us"
+                    android:text="@string/settings_review"
                     android:textAppearance="?attr/textAppearanceCaption"
                     android:layout_marginBottom="8dp"/>
 
@@ -172,7 +172,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="?attr/selectableItemBackgroundBorderless"
-                        android:contentDescription="View on TripAdvisor"
+                        android:contentDescription="@string/cd_view_tripadvisor"
                         android:src="@drawable/ic_tripadvisor"
                         android:tint="@color/gold"/>
                 </LinearLayout>
@@ -183,7 +183,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Directions"
+            android:text="@string/settings_directions"
             android:textAppearance="?attr/textAppearanceHeadline6"
             android:layout_marginBottom="8dp"/>
 
@@ -199,7 +199,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Get Directions"
+                android:contentDescription="@string/cd_get_directions"
                 android:src="@drawable/ic_maps"
                 android:tint="@color/gold"/>
         </LinearLayout>
@@ -208,7 +208,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Legal"
+            android:text="@string/settings_legal"
             android:textAppearance="?attr/textAppearanceHeadline6"
             android:layout_marginBottom="8dp"/>
 
@@ -216,7 +216,7 @@
             android:id="@+id/privacyPolicyButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Privacy Policy"
+            android:text="@string/settings_privacy_policy"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_marginBottom="8dp"/>
 
@@ -224,7 +224,7 @@
             android:id="@+id/termsButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Terms of Service"
+            android:text="@string/settings_terms"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_marginBottom="16dp"/>
 
@@ -234,7 +234,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Version 1.0.0"
+            android:text="@string/settings_version"
             android:textAppearance="?attr/textAppearanceCaption"
             android:layout_marginTop="16dp"/>
 

@@ -49,7 +49,7 @@ class ShareFragment : Fragment() {
         if (isGranted) {
             startCamera()
         } else {
-            Toast.makeText(context, "Camera permission is required", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, getString(R.string.error_camera_permission), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -59,7 +59,7 @@ class ShareFragment : Fragment() {
         if (permissions.all { it.value }) {
             openGallery()
         } else {
-            Toast.makeText(context, "Storage permission is required to access gallery", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, getString(R.string.error_storage_permission), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -201,7 +201,7 @@ class ShareFragment : Fragment() {
                     imageCapture
                 )
             } catch (e: Exception) {
-                Toast.makeText(context, "Failed to start camera", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, getString(R.string.error_camera_start), Toast.LENGTH_SHORT).show()
             }
         }, ContextCompat.getMainExecutor(requireContext()))
     }
@@ -229,12 +229,12 @@ class ShareFragment : Fragment() {
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     output.savedUri?.let { uri ->
                         viewModel.setCapturedImageUri(uri)
-                        Toast.makeText(context, "Photo captured!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, getString(R.string.msg_photo_captured), Toast.LENGTH_SHORT).show()
                     }
                 }
 
                 override fun onError(exc: ImageCaptureException) {
-                    Toast.makeText(context, "Failed to capture photo", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, getString(R.string.error_photo_capture), Toast.LENGTH_SHORT).show()
                 }
             }
         )
@@ -273,10 +273,10 @@ class ShareFragment : Fragment() {
                     putExtra(Intent.EXTRA_STREAM, processedUri)
                     addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                 }
-                startActivity(Intent.createChooser(shareIntent, "Share Image"))
+                startActivity(Intent.createChooser(shareIntent, getString(R.string.title_share_image)))
             }
         } ?: run {
-            Toast.makeText(context, "No image to share", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, getString(R.string.error_no_image), Toast.LENGTH_SHORT).show()
         }
     }
 

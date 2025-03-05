@@ -54,8 +54,8 @@ class SplashActivity : AppCompatActivity() {
     private suspend fun prepareData() = withContext(Dispatchers.IO) {
         try {
             // Pre-fetch and cache all data
-            SampleDataProvider.getFloors()
-            SampleDataProvider.getExhibits()
+            SampleDataProvider.getFloors(this@SplashActivity)
+            SampleDataProvider.getExhibits(this@SplashActivity)
             Log.d(TAG, "Data preparation complete")
         } catch (e: Exception) {
             Log.e(TAG, "Failed to prepare data", e)
@@ -67,12 +67,12 @@ class SplashActivity : AppCompatActivity() {
             val imageResources = mutableListOf<Int>()
             
             // Add floor images
-            SampleDataProvider.getFloors().forEach { floor ->
+            SampleDataProvider.getFloors(this@SplashActivity).forEach { floor ->
                 imageResources.add(floor.imageResourceId)
             }
             
             // Add exhibit images
-            SampleDataProvider.getExhibits().forEach { exhibit ->
+            SampleDataProvider.getExhibits(this@SplashActivity).forEach { exhibit ->
                 imageResources.add(exhibit.imageResourceId)
             }
 

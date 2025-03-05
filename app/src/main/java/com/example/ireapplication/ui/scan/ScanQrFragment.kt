@@ -24,6 +24,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import com.example.ireapplication.util.ErrorHandler
+import com.example.ireapplication.R
 
 @AndroidEntryPoint
 class ScanQrFragment : Fragment() {
@@ -42,7 +43,7 @@ class ScanQrFragment : Fragment() {
         if (isGranted) {
             startCamera()
         } else {
-            Toast.makeText(context, "Camera permission is required", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, getString(R.string.error_camera_permission), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -161,7 +162,7 @@ class ScanQrFragment : Fragment() {
                             imageAnalysis
                         )
                     } catch (e: Exception) {
-                        Toast.makeText(context, "Failed to start camera", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, getString(R.string.error_camera_start), Toast.LENGTH_SHORT).show()
                     }
                     ErrorHandler.logDebug("Camera started successfully")
                 } catch (e: Exception) {
@@ -204,12 +205,7 @@ class ScanQrFragment : Fragment() {
     }
 
     private fun handleScannedContent(content: String) {
-        // TODO: Navigate to appropriate screen based on QR content
-        // For example, if the QR code contains an exhibit ID:
-        // findNavController().navigate(
-        //     ScanQrFragmentDirections.actionScanQrToExhibitDetail(content)
-        // )
-        Toast.makeText(context, "Scanned: $content", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, getString(R.string.msg_qr_scanned, content), Toast.LENGTH_SHORT).show()
     }
 
     private fun allPermissionsGranted() = ContextCompat.checkSelfPermission(
