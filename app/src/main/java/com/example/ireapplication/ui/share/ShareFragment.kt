@@ -2,6 +2,7 @@ package com.example.ireapplication.ui.share
 
 import android.Manifest
 import android.content.ContentValues
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -123,7 +124,7 @@ class ShareFragment : Fragment() {
             switchCameraButton.setOnClickListener { switchCamera() }
             galleryButton.setOnClickListener { checkStoragePermissionAndOpenGallery() }
             galleryButtonPreview.setOnClickListener { checkStoragePermissionAndOpenGallery() }
-            shareButton.setOnClickListener { /* TODO: Implement share functionality */ }
+            shareButton.setOnClickListener { shareImage() }
             backButton.setOnClickListener { returnToCamera() }
         }
     }
@@ -250,6 +251,20 @@ class ShareFragment : Fragment() {
         
         // Clear the captured image URI
         viewModel.setCapturedImageUri(null)
+    }
+
+    private fun shareImage() {
+        viewModel.capturedImageUri.value?.let { uri ->
+            val shareIntent = Intent().apply {
+                action = Intent.ACTION_SEND
+                type = "image/*"
+                putExtra(Intent.EXTRA_STREAM, uri)
+                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            }
+            startActivity(Intent.createChooser(shareIntent, "Share Image"))
+        } ?: run {
+            Toast.makeText(context, "No image to share", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun allPermissionsGranted() = ContextCompat.checkSelfPermission(
