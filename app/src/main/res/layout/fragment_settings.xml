@@ -79,6 +79,116 @@
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_marginBottom="16dp"/>
 
+        <!-- Social & Reviews Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Connect With Us"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
+
+            <!-- Social Links -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Social Media"
+                    android:textAppearance="?attr/textAppearanceCaption"
+                    android:layout_marginBottom="8dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <ImageButton
+                        android:id="@+id/homeWebsiteButton"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Visit Website"
+                        android:src="@drawable/ic_web"
+                        android:tint="@color/gold"/>
+
+                    <ImageButton
+                        android:id="@+id/instagramButton"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Follow on Instagram"
+                        android:src="@drawable/ic_instagram"
+                        android:tint="@color/gold"/>
+
+                    <ImageButton
+                        android:id="@+id/facebookButton"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Follow on Facebook"
+                        android:src="@drawable/ic_facebook"
+                        android:tint="@color/gold"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Reviews Links -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Review us"
+                    android:textAppearance="?attr/textAppearanceCaption"
+                    android:layout_marginBottom="8dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <ImageButton
+                        android:id="@+id/googleMapsButton"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="View on Google Maps"
+                        android:src="@drawable/ic_maps"
+                        android:tint="@color/gold"/>
+
+                    <ImageButton
+                        android:id="@+id/tripadvisorButton"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="View on TripAdvisor"
+                        android:src="@drawable/ic_tripadvisor"
+                        android:tint="@color/gold"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
         <!-- Legal Section -->
         <TextView
             android:layout_width="wrap_content"
