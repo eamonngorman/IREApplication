@@ -3,6 +3,7 @@ package com.example.ireapplication.ui.share
 import android.Manifest
 import android.content.ContentValues
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater
@@ -34,13 +35,43 @@ class ShareFragment : Fragment() {
     private var cameraExecutor: ExecutorService? = null
     private var lensFacing = CameraSelector.LENS_FACING_BACK
 
-    private val requestPermissionLauncher = registerForActivityResult(
+    private val requestCameraPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { isGranted ->
         if (isGranted) {
             startCamera()
         } else {
             Toast.makeText(context, "Camera permission is required", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private val requestStoragePermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestMultiplePermissions()
+    ) { permissions ->
+        if (permissions.all { it.value }) {
+            openGallery()
+        } else {
+            Toast.makeText(context, "Storage permission is required to access gallery", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private val galleryLauncher = registerForActivityResult(
+        ActivityResultContracts.GetContent()
+    ) { uri ->
+        uri?.let {
+            viewModel.setCapturedImageUri(it)
+            // Hide camera preview and show selected image
+            binding.viewFinder.visibility = View.GONE
+            binding.overlayImage.visibility = View.VISIBLE
+            
+            // Switch controls
+            binding.cameraControls.visibility = View.GONE
+            binding.imageControls.visibility = View.VISIBLE
+            
+            // Load the image using Glide
+            Glide.with(this)
+                .load(it)
+                .into(binding.overlayImage)
         }
     }
 
@@ -59,7 +90,7 @@ class ShareFragment : Fragment() {
         if (allPermissionsGranted()) {
             startCamera()
         } else {
-            requestPermissionLauncher.launch(Manifest.permission.CAMERA)
+            requestCameraPermissionLauncher.launch(Manifest.permission.CAMERA)
         }
 
         setupButtons()
@@ -90,11 +121,43 @@ class ShareFragment : Fragment() {
         binding.apply {
             captureButton.setOnClickListener { takePhoto() }
             switchCameraButton.setOnClickListener { switchCamera() }
-            galleryButton.setOnClickListener { /* TODO: Implement gallery selection */ }
-            galleryButtonPreview.setOnClickListener { /* TODO: Implement gallery selection */ }
+            galleryButton.setOnClickListener { checkStoragePermissionAndOpenGallery() }
+            galleryButtonPreview.setOnClickListener { checkStoragePermissionAndOpenGallery() }
             shareButton.setOnClickListener { /* TODO: Implement share functionality */ }
             backButton.setOnClickListener { returnToCamera() }
         }
+    }
+
+    private fun checkStoragePermissionAndOpenGallery() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(
+                    requireContext(),
+                    Manifest.permission.READ_MEDIA_IMAGES
+                ) == PackageManager.PERMISSION_GRANTED
+            ) {
+                openGallery()
+            } else {
+                requestStoragePermissionLauncher.launch(
+                    arrayOf(Manifest.permission.READ_MEDIA_IMAGES)
+                )
+            }
+        } else {
+            if (ContextCompat.checkSelfPermission(
+                    requireContext(),
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                ) == PackageManager.PERMISSION_GRANTED
+            ) {
+                openGallery()
+            } else {
+                requestStoragePermissionLauncher.launch(
+                    arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
+                )
+            }
+        }
+    }
+
+    private fun openGallery() {
+        galleryLauncher.launch("image/*")
     }
 
     private fun startCamera() {
