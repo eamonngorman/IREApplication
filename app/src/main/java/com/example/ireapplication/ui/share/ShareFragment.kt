@@ -67,18 +67,7 @@ class ShareFragment : Fragment() {
     ) { uri ->
         uri?.let {
             viewModel.setCapturedImageUri(it)
-            // Hide camera preview and show selected image
-            binding.viewFinder.visibility = View.GONE
-            binding.overlayImage.visibility = View.VISIBLE
-            
-            // Switch controls
-            binding.cameraControls.visibility = View.GONE
-            binding.imageControls.visibility = View.VISIBLE
-            
-            // Load the image using Glide
-            Glide.with(this)
-                .load(it)
-                .into(binding.overlayImage)
+            showFramedImage(it)
         }
     }
 
@@ -115,11 +104,6 @@ class ShareFragment : Fragment() {
                 // Switch controls
                 binding.cameraControls.visibility = View.GONE
                 binding.imageControls.visibility = View.VISIBLE
-                
-                // Load the image using Glide
-                Glide.with(this)
-                    .load(it)
-                    .into(binding.overlayImage)
             }
         }
     }
@@ -225,6 +209,7 @@ class ShareFragment : Fragment() {
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     output.savedUri?.let { uri ->
                         viewModel.setCapturedImageUri(uri)
+                        showFramedImage(uri)
                         Toast.makeText(context, getString(R.string.msg_photo_captured), Toast.LENGTH_SHORT).show()
                     }
                 }
@@ -260,7 +245,7 @@ class ShareFragment : Fragment() {
 
     private fun shareImage() {
         viewModel.capturedImageUri.value?.let { uri ->
-            // Process image with banner
+            // Process image with frame
             val processedImageUri = processImageWithBanner(uri)
             processedImageUri?.let { processedUri ->
                 val shareIntent = Intent().apply {
@@ -372,6 +357,90 @@ class ShareFragment : Fragment() {
         } catch (e: Exception) {
             Toast.makeText(context, "Failed to process image", Toast.LENGTH_SHORT).show()
             return null
+        }
+    }
+
+    private fun showFramedImage(imageUri: android.net.Uri) {
+        try {
+            // Load original image with correct orientation
+            val originalBitmap = MediaStore.Images.Media.getBitmap(requireContext().contentResolver, imageUri)
+            
+            // Get image orientation from MediaStore
+            val cursor = requireContext().contentResolver.query(
+                imageUri,
+                arrayOf(MediaStore.Images.Media.ORIENTATION),
+                null,
+                null,
+                null
+            )
+            
+            var orientation = 0
+            cursor?.use {
+                if (it.moveToFirst()) {
+                    orientation = it.getInt(0)
+                }
+            }
+            
+            // Create matrix for rotation
+            val matrix = Matrix()
+            when (orientation) {
+                90 -> matrix.postRotate(90f)
+                180 -> matrix.postRotate(180f)
+                270 -> matrix.postRotate(270f)
+            }
+            
+            // Create rotated bitmap
+            val rotatedBitmap = Bitmap.createBitmap(
+                originalBitmap,
+                0,
+                0,
+                originalBitmap.width,
+                originalBitmap.height,
+                matrix,
+                true
+            )
+
+            // Load frame
+            val frameBitmap = BitmapFactory.decodeResource(resources, R.drawable.ireframe)
+            
+            // Scale frame to match image dimensions
+            val scaledFrame = Bitmap.createScaledBitmap(
+                frameBitmap,
+                rotatedBitmap.width,
+                rotatedBitmap.height,
+                true
+            )
+            
+            // Create new bitmap for the preview
+            val combinedBitmap = Bitmap.createBitmap(
+                rotatedBitmap.width,
+                rotatedBitmap.height,
+                Bitmap.Config.ARGB_8888
+            )
+            
+            val canvas = Canvas(combinedBitmap)
+            
+            // Draw original image
+            canvas.drawBitmap(rotatedBitmap, 0f, 0f, null)
+            
+            // Draw frame on top
+            canvas.drawBitmap(scaledFrame, 0f, 0f, null)
+
+            // Show the framed preview
+            binding.overlayImage.setImageBitmap(combinedBitmap)
+            
+            // Clean up
+            originalBitmap.recycle()
+            rotatedBitmap.recycle()
+            frameBitmap.recycle()
+            scaledFrame.recycle()
+            
+        } catch (e: Exception) {
+            Toast.makeText(context, "Failed to process image", Toast.LENGTH_SHORT).show()
+            // Fall back to showing original image
+            Glide.with(this)
+                .load(imageUri)
+                .into(binding.overlayImage)
         }
     }
 
