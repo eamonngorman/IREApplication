@@ -41,7 +41,6 @@ class ShareFragment : Fragment() {
     private var imageCapture: ImageCapture? = null
     private var cameraExecutor: ExecutorService? = null
     private var lensFacing = CameraSelector.LENS_FACING_BACK
-    private var isBannerAtTop = false
 
     private val requestCameraPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
@@ -132,9 +131,6 @@ class ShareFragment : Fragment() {
             galleryButton.setOnClickListener { checkStoragePermissionAndOpenGallery() }
             shareButton.setOnClickListener { shareImage() }
             backButton.setOnClickListener { returnToCamera() }
-            bannerPositionSwitch.setOnCheckedChangeListener { _, isChecked ->
-                isBannerAtTop = isChecked
-            }
         }
     }
 
@@ -319,18 +315,22 @@ class ShareFragment : Fragment() {
                 matrix,
                 true
             )
+
+            // Load frame
+            val frameBitmap = BitmapFactory.decodeResource(resources, R.drawable.ireframe)
             
-            // Load banner
-            val bannerBitmap = BitmapFactory.decodeResource(resources, R.drawable.banner_overlay)
+            // Scale frame to match image dimensions
+            val scaledFrame = Bitmap.createScaledBitmap(
+                frameBitmap,
+                rotatedBitmap.width,
+                rotatedBitmap.height,
+                true
+            )
             
-            // Calculate banner dimensions to match image width while maintaining aspect ratio
-            val bannerWidth = rotatedBitmap.width
-            val bannerHeight = (bannerWidth * bannerBitmap.height.toFloat() / bannerBitmap.width.toFloat()).toInt()
-            
-            // Create new bitmap with banner
+            // Create new bitmap for the final image
             val combinedBitmap = Bitmap.createBitmap(
                 rotatedBitmap.width,
-                rotatedBitmap.height + bannerHeight,
+                rotatedBitmap.height,
                 Bitmap.Config.ARGB_8888
             )
             
@@ -339,9 +339,8 @@ class ShareFragment : Fragment() {
             // Draw original image
             canvas.drawBitmap(rotatedBitmap, 0f, 0f, null)
             
-            // Draw banner at top or bottom
-            val bannerY = if (isBannerAtTop) 0f else rotatedBitmap.height.toFloat()
-            canvas.drawBitmap(bannerBitmap, 0f, bannerY, null)
+            // Draw frame on top
+            canvas.drawBitmap(scaledFrame, 0f, 0f, null)
             
             // Save combined image
             val name = SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS", Locale.US)
@@ -365,7 +364,8 @@ class ShareFragment : Fragment() {
             // Clean up
             originalBitmap.recycle()
             rotatedBitmap.recycle()
-            bannerBitmap.recycle()
+            frameBitmap.recycle()
+            scaledFrame.recycle()
             combinedBitmap.recycle()
             
             return outputUri
