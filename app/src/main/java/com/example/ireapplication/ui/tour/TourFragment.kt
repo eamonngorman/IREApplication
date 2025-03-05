@@ -13,6 +13,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import com.google.android.material.appbar.AppBarLayout
+import kotlin.math.abs
 
 @AndroidEntryPoint
 class TourFragment : Fragment() {
@@ -32,8 +34,27 @@ class TourFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupToolbar()
         setupRecyclerView()
         observeViewModel()
+    }
+
+    private fun setupToolbar() {
+        // Set up the collapsing toolbar animation
+        binding.appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
+            val scrollRange = appBarLayout.totalScrollRange
+            val percentage = abs(verticalOffset).toFloat() / scrollRange.toFloat()
+            
+            // Fade out the header content as the toolbar collapses
+            binding.headerContent.alpha = 1 - percentage
+        })
+
+        // Set up the toolbar
+        binding.toolbar.apply {
+            setNavigationOnClickListener {
+                findNavController().navigateUp()
+            }
+        }
     }
 
     private fun setupRecyclerView() {
@@ -46,6 +67,13 @@ class TourFragment : Fragment() {
         binding.floorsRecyclerView.apply {
             adapter = floorsAdapter
             layoutManager = LinearLayoutManager(context)
+            // Add item animation
+            itemAnimator?.apply {
+                addDuration = 300
+                moveDuration = 300
+                changeDuration = 300
+                removeDuration = 300
+            }
         }
     }
 

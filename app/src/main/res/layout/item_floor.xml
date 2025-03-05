@@ -1,43 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:layout_margin="8dp"
-    app:cardBackgroundColor="@color/black"
-    app:cardCornerRadius="0dp"
-    app:cardElevation="4dp">
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:rippleColor="?attr/colorControlHighlight">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/floorImage"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="16:9"
             android:scaleType="centerCrop"
-            tools:src="@tools:sample/backgrounds/scenic" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:src="@tools:sample/backgrounds/scenic"/>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/gradient_overlay" />
+            android:layout_height="0dp"
+            android:background="@drawable/gradient_overlay"
+            app:layout_constraintTop_toTopOf="@id/floorImage"
+            app:layout_constraintBottom_toBottomOf="@id/floorImage"/>
 
         <TextView
-            android:id="@+id/floorName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/floorNumber"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_margin="16dp"
-            android:textColor="@color/gold"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/barlow_condensed_regular"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/circle_background"
+            android:gravity="center"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textColor="@android:color/white"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="LEGENDARY TEAMS" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@id/floorImage">
+
+            <TextView
+                android:id="@+id/floorTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                tools:text="Floor Title"/>
+
+            <TextView
+                android:id="@+id/floorDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:maxLines="3"
+                android:ellipsize="end"
+                tools:text="Floor description goes here with details about what visitors can expect to see and experience on this floor."/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/exploreButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Explore"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.cardview.widget.CardView> 
+</com.google.android.material.card.MaterialCardView> 
