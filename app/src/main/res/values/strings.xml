@@ -30,115 +30,115 @@
     <!-- Exhibits -->
     <string name="exhibit_tunnel_intro">Tunnel Introduction Video</string>
     <string name="exhibit_tunnel_intro_short">Welcome to rugby</string>
-    <string name="exhibit_tunnel_intro_full">An immersive introduction to the world of rugby, setting the stage for your journey through this incredible sport.</string>
+    <string name="exhibit_tunnel_intro_full">An immersive introduction to the world of rugby, setting the stage for your journey through this incredible sport. Narrated by Irish Rugby Legend Paul O\'Connell, this video will introduce you to the five core values of the game. Passion, Discipline, Integrity, Solidarity and Respect. With a 270\u00B0 production like this, make sure to stand close to the back wall to take it all in.</string>
 
     <string name="exhibit_building_architecture">Building Architecture</string>
     <string name="exhibit_building_architecture_short">Building design</string>
-    <string name="exhibit_building_architecture_full">Discover the unique design and structure of the International Rugby Experience building.</string>
+    <string name="exhibit_building_architecture_full">The International Rugby Experience (IRE) is a striking seven-story cultural institution located in Limerick’s Georgian Quarter. Designed by Stirling Prize-winning Níall McLaughlin Architects, the building blends contemporary and historic architectural elements, honoring both the city’s heritage and the global sport of rugby. Situated on a tight urban site, the IRE was conceived as a civic landmark rather than a traditional townhouse. Its red-brick facade, with a rhythmic arrangement of brick piers and recessed bays, echoes the detailing of local churches and Georgian buildings. A grand entrance portico welcomes visitors, providing a sheltered public gathering space that fosters community interaction, particularly on match days.Inside, the museum features a dynamic vertical journey, leading visitors through a sequence of diverse spaces—some intimate and enclosed, others expansive and daylit. The building culminates in a dramatic public hall on the top floor, offering panoramic views over Limerick, acting as a beacon visible from across the city. Vaulted ceilings and structural brick detailing are key design elements, metaphorically reflecting the physical forces of rugby.The building’s design also prioritizes sustainability and structural integrity. Handmade clay bricks and red-pigmented pre-cast concrete ensure a seamless integration with Limerick’s historic fabric. Additionally, interactive exhibitions, digital displays, and event spaces are distributed across its levels, enhancing the visitor experience.More than a museum, the IRE serves as a vital urban landmark, strengthening connections between Limerick’s cultural sites, Munster Rugby, and the local community.</string>
 
     <string name="exhibit_legendary_encounters">Legendary Encounters</string>
     <string name="exhibit_legendary_encounters_short">Historic moments</string>
-    <string name="exhibit_legendary_encounters_full">Experience legendary moments that have defined the sport of rugby.</string>
+    <string name="exhibit_legendary_encounters_full">Across each of the floors of the building, you will come across these Legendary Encounters. They feature several players who embody the value associated with each floor in the building. Passion: Peter O\'Mahony, Siya Kolisi, Agustin Pichot, Lawrence Dallaglio, Phaidra Knight Discipline: Johnny Sexton, Antoine Dupont, Nigel Owens, Integrity: Joy Neville, John Eales Solidarity: Alun Wyn Jones, Conor Murray, Maggie Alphonsi, Pieter Steph Du Toit, Respect: Anthony Foley, Brian O\'Driscoll, Richie McCaw, Philippe Sella</string>
 
     <string name="exhibit_global_grassroots">Global Grassroots</string>
     <string name="exhibit_global_grassroots_short">Community impact</string>
-    <string name="exhibit_global_grassroots_full">Explore how rugby shapes communities and develops grassroots initiatives worldwide.</string>
+    <string name="exhibit_global_grassroots_full">Explore how rugby shapes communities and develops grassroots initiatives worldwide. Learn more about Rugby 7s in Fiji, the NZ Natives (Maori) Touring Side, the origins of the kicking tee, rugby\'s importance in mining communities in Wales</string>
 
     <string name="exhibit_grassroots_tablets">Grassroots Initiatives Tablets</string>
     <string name="exhibit_grassroots_tablets_short">Interactive learning</string>
-    <string name="exhibit_grassroots_tablets_full">Interactive tablets showcasing grassroots rugby initiatives from around the world.</string>
+    <string name="exhibit_grassroots_tablets_full">Interactive tablets showcasing grassroots rugby initiatives from around the world and the work they do. SOS Kit Aid, Child Fund Rugby, Mixed Ability Sport</string>
 
     <string name="exhibit_legendary_beginnings">Legendary Beginnings</string>
     <string name="exhibit_legendary_beginnings_short">Origins of rugby</string>
-    <string name="exhibit_legendary_beginnings_full">Discover the origins and early development of rugby.</string>
+    <string name="exhibit_legendary_beginnings_full">Discover the origins and early development of several global rugby superstars such as Thierry Dusautoir, David Pocock, Owen Farrell, Ciara Griffin and Greg O\'Shea.</string>
 
     <string name="exhibit_ball_of_fame">Ball of Fame</string>
     <string name="exhibit_ball_of_fame_short">Historic balls</string>
-    <string name="exhibit_ball_of_fame_full">A showcase of historic rugby balls that tell the story of the game\'s evolution.</string>
+    <string name="exhibit_ball_of_fame_full">A showcase of historic rugby balls that tell the story of the game\'s evolution. Some of the iconic stars that have graced the International Rugby Experience include Brian O\'Driscoll, Bryan Habana, Sean Fitzpatrick, Francois Pienaar, Keith Wood, Paul O\'Connell</string>
 
     <string name="exhibit_handling_skills">Handling Skills</string>
     <string name="exhibit_handling_skills_short">Ball handling</string>
-    <string name="exhibit_handling_skills_full">Master the art of handling the rugby ball with precision and control.</string>
+    <string name="exhibit_handling_skills_full">Master the art of handling the rugby ball with precision and control. Presented by Faf de Klerk</string>
 
     <string name="exhibit_strength_technique">Strength &amp; Technique</string>
     <string name="exhibit_strength_technique_short">Physical skills</string>
-    <string name="exhibit_strength_technique_full">Develop your strength and technique for scrummaging, tackling, and rucking.</string>
+    <string name="exhibit_strength_technique_full">Develop your strength and technique for scrummaging, tackling, and rucking. Presented by Tadhg Furlong</string>
 
     <string name="exhibit_running_skills">Running Skills</string>
     <string name="exhibit_running_skills_short">Movement</string>
-    <string name="exhibit_running_skills_full">Learn the essential running techniques for different positions and situations.</string>
+    <string name="exhibit_running_skills_full">Learn the essential running techniques for different positions and situations. Presented by Keith Earls</string>
 
     <string name="exhibit_kicking_skills">Kicking Skills</string>
     <string name="exhibit_kicking_skills_short">Ball control</string>
-    <string name="exhibit_kicking_skills_full">Perfect your kicking technique for various game situations.</string>
+    <string name="exhibit_kicking_skills_full">Perfect your kicking technique for various game situations. Presented by Jonny Wilkinson</string>
 
     <string name="exhibit_laws_game">Laws of the Game with Nigel Owens</string>
     <string name="exhibit_laws_game_short">Rules presentation</string>
-    <string name="exhibit_laws_game_full">Learn the laws of rugby through an interactive presentation with legendary referee Nigel Owens.</string>
+    <string name="exhibit_laws_game_full">Learn the laws of rugby through an audiovisual presentation with legendary referee Nigel Owens.</string>
 
     <string name="exhibit_be_referee">Be the Referee</string>
     <string name="exhibit_be_referee_short">Decision making</string>
-    <string name="exhibit_be_referee_full">Test your knowledge of rugby laws by making real-time refereeing decisions.</string>
+    <string name="exhibit_be_referee_full">Test your knowledge of rugby laws by watching clips from the Rugby World Cup and coming to refereeing decisions based on your knowledge of the laws.</string>
 
     <string name="exhibit_find_position">Find your Position</string>
     <string name="exhibit_find_position_short">Player roles</string>
-    <string name="exhibit_find_position_full">Discover which rugby position best suits your skills and attributes.</string>
+    <string name="exhibit_find_position_full">Discover which rugby position best suits your skills and attributes based on your results from the four key skill games on the floor: Handling, Kicking, Running and Strength &amp; Technique.</string>
 
     <string name="exhibit_measure_up">Measure Up</string>
     <string name="exhibit_measure_up_short">Player comparison</string>
-    <string name="exhibit_measure_up_full">Compare yourself to rugby\'s elite athletes.</string>
+    <string name="exhibit_measure_up_full">Compare yourself to the heights of some of rugby\'s elite athletes such as Serge Blanco, Uini Atonio, Richie McCaw and Emily Scarratt</string>
 
     <string name="exhibit_whole_squad">Whole Squad</string>
     <string name="exhibit_whole_squad_short">Team dynamics</string>
-    <string name="exhibit_whole_squad_full">Understanding the importance of every team member in rugby.</string>
+    <string name="exhibit_whole_squad_full">Understanding the importance of everyone involved in preparing the team in rugby. This interactive presentation focuses on the backroom team at Munster where you can learn more about the roles of the head coach, groundsman, physio, stadium director and nutritionist.</string>
 
     <string name="exhibit_legendary_leaders">Legendary Leaders</string>
     <string name="exhibit_legendary_leaders_short">Rugby leadership</string>
-    <string name="exhibit_legendary_leaders_full">Discover what makes great rugby leaders and how they inspire their teams.</string>
+    <string name="exhibit_legendary_leaders_full">Discover what makes great rugby leaders and how they inspire their teams. This section features discussions on Jonny Wilkinson, Jim Telfer, Sir Ian McGeechan and Joe Schmidt.</string>
 
     <string name="exhibit_teamwork_pitch">Teamwork on the Pitch</string>
     <string name="exhibit_teamwork_pitch_short">Team coordination</string>
-    <string name="exhibit_teamwork_pitch_full">Experience how teams work together during crucial moments in the game.</string>
+    <string name="exhibit_teamwork_pitch_full">Experience how teams work together during crucial moments in the game. In this immersive virtual reality game you will be running through a few basic passing drills as a unit. The game requires three players.</string>
 
     <string name="exhibit_team_spirit">Team Spirit Lockers</string>
     <string name="exhibit_team_spirit_short">Team culture</string>
-    <string name="exhibit_team_spirit_full">Explore the unique traditions and spirit of rugby teams through their locker rooms.</string>
+    <string name="exhibit_team_spirit_full">Explore the unique traditions and spirit of rugby teams through their locker rooms. In every second locker here there is a story about brotherhood and sisterhood within the sport of rugby. Learn more about the importance of Irish Unity in Sport from Jack Kyle, a legendary farewell to the great Jonah Lomu as well as a lifelong brotherhood between Ronan O\'Gara and Peter Stringer.</string>
 
     <string name="exhibit_club_culture">Club Culture Wall</string>
     <string name="exhibit_club_culture_short">Club traditions</string>
-    <string name="exhibit_club_culture_full">Discover the rich traditions and cultures of rugby clubs worldwide.</string>
+    <string name="exhibit_club_culture_full">Discover the rich traditions and cultures of rugby clubs worldwide. On this wall, we have featured eight of the most iconic teams in world rugby: The Crusaders, The Barbarians, The British &amp; Irish Lions, Llanelli RFC, Leicester Tigers, Toulouse, Munster, Richmond RFC</string>
 
     <string name="exhibit_legendary_nations_tablets">Legendary Nations Tablets</string>
     <string name="exhibit_legendary_nations_tablets_short">National teams</string>
-    <string name="exhibit_legendary_nations_tablets_full">Interactive exploration of rugby\'s greatest national teams and their achievements.</string>
+    <string name="exhibit_legendary_nations_tablets_full">Interactive exploration of rugby\'s greatest national teams and their achievements. On these tablets you can learn more about the top teams in world rugby, their fanbases and the distinct cultures that form the rich tapestry of world rugby.</string>
 
     <string name="exhibit_global_growth">Global Growth Touchscreens</string>
     <string name="exhibit_global_growth_short">Rugby worldwide</string>
-    <string name="exhibit_global_growth_full">Track the global expansion and development of rugby through interactive displays.</string>
+    <string name="exhibit_global_growth_full">Track the global expansion and development of rugby through interactive displays. Using the interactive touchscreens you can view statistics on world rugby and watch a presentation detailing the growth of the game across the world from the humble beginnings of World Rugby (then the International Rugby Board) in the 1880s right through to the modern day.</string>
 
     <string name="exhibit_unity_respect">Unity &amp; Respect Wall</string>
     <string name="exhibit_unity_respect_short">Rugby values</string>
-    <string name="exhibit_unity_respect_full">Celebrating rugby\'s core values of unity and respect across nations.</string>
+    <string name="exhibit_unity_respect_full">Celebrating rugby\'s core values of unity and respect across nations. Here you can pick up the phones to listen to stories from across the world that highlight the bonds of respect that unify our global game. Featuring: Francois Pienaar, Willie John McBride, Malakai Fekitoa, John Eales</string>
 
     <string name="exhibit_cube">The Cube</string>
     <string name="exhibit_cube_short">Immersive experience</string>
-    <string name="exhibit_cube_full">An immersive audio-visual experience showcasing international rugby\'s greatest moments.</string>
+    <string name="exhibit_cube_full">An immersive audio-visual experience showcasing international rugby\'s greatest teams with a four walled visual presentation accompanied by national anthems.</string>
 
     <string name="exhibit_haka">Haka Presentation</string>
     <string name="exhibit_haka_short">Cultural tradition</string>
-    <string name="exhibit_haka_full">Experience the power and significance of the Haka in rugby.</string>
+    <string name="exhibit_haka_full">Experience the power and significance of the Haka in rugby. This 2:30 Presentation will explore the history and culture behind the Haka as well as featuring the iconic Haka which preceded the Rugby World Cup Final in New Zealand in 2011.</string>
 
     <string name="exhibit_limerick_skyline">Limerick Skyline QR Tour</string>
     <string name="exhibit_limerick_skyline_short">City views</string>
-    <string name="exhibit_limerick_skyline_full">Explore Limerick\'s landmarks through an interactive QR-guided tour of the skyline.</string>
+    <string name="exhibit_limerick_skyline_full">Explore Limerick\'s landmarks through an interactive QR-guided tour of the skyline. Scanning the QR codes will give you extra information on each of the landmarks and identify them in the Limerick Skyline</string>
 
     <string name="exhibit_wall_of_fame">Wall of Fame</string>
     <string name="exhibit_wall_of_fame_short">Rugby legends</string>
-    <string name="exhibit_wall_of_fame_full">Honor wall celebrating the greatest legends of rugby.</string>
+    <string name="exhibit_wall_of_fame_full">Honour wall celebrating the greatest legends of rugby. In the centre you can see all the criteria for selection to the International Rugby Experience Hall of Fame and each year identifies when that player first met one of the above criteria.</string>
 
     <string name="exhibit_hall_of_fame">Hall of Fame Digital Archives</string>
     <string name="exhibit_hall_of_fame_short">Historic archives</string>
-    <string name="exhibit_hall_of_fame_full">Digital collection preserving rugby\'s most memorable moments and legendary figures.</string>
+    <string name="exhibit_hall_of_fame_full">Digital collection preserving rugby\'s most legendary figures. These digital archives store information on all the members of the International Rugby Experience Hall of Fame. You can learn all about the players listed on the Wall of Fame in the Hall of Legends as well as select your own Dream XV and see how it stacks up against your friends\' and family\'s</string>
 
     <!-- UI Elements -->
     <string name="explore">Explore</string>

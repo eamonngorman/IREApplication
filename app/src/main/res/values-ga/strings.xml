@@ -1,19 +1,208 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- TODO: Update with your actual app name -->
+    <string name="app_name">IREApplication</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <!-- Navigation -->
+    <string name="nav_tour">Tour</string>
+    <string name="nav_share">Share</string>
+    <string name="nav_scan">Scan QR</string>
+    <string name="nav_settings">Settings</string>
+    <string name="nav_floor_exhibits">Floor Exhibits</string>
+    <string name="nav_exhibit_detail">Exhibit Detail</string>
+    <string name="nav_search_results">Search Results</string>
+
+    <!-- Floors -->
+    <string name="floor_general">GENERAL</string>
+    <string name="floor_general_desc">General exhibits and information</string>
+    <string name="floor_legendary_beginnings">LEGENDARY BEGINNINGS</string>
+    <string name="floor_legendary_beginnings_desc">First Floor - Origins and Grassroots</string>
+    <string name="floor_legendary_skills">LEGENDARY SKILLS</string>
+    <string name="floor_legendary_skills_desc">Second Floor - Skills and Techniques</string>
+    <string name="floor_legendary_teams">LEGENDARY TEAMS</string>
+    <string name="floor_legendary_teams_desc">Third Floor - Team and Leadership</string>
+    <string name="floor_legendary_nations">LEGENDARY NATIONS</string>
+    <string name="floor_legendary_nations_desc">Fourth Floor - International Rugby</string>
+    <string name="floor_hall_of_legends">HALL OF LEGENDS</string>
+    <string name="floor_hall_of_legends_desc">Sixth Floor - Celebrating Rugby\'s Greatest</string>
+
+    <!-- Exhibits -->
+    <string name="exhibit_tunnel_intro">Tunnel Introduction Video</string>
+    <string name="exhibit_tunnel_intro_short">Welcome to rugby</string>
+    <string name="exhibit_tunnel_intro_full">An immersive introduction to the world of rugby, setting the stage for your journey through this incredible sport. Narrated by Irish Rugby Legend Paul O\'Connell, this video will introduce you to the five core values of the game. Passion, Discipline, Integrity, Solidarity and Respect. With a 270\u00B0 production like this, make sure to stand close to the back wall to take it all in.</string>
+
+    <string name="exhibit_building_architecture">Building Architecture</string>
+    <string name="exhibit_building_architecture_short">Building design</string>
+    <string name="exhibit_building_architecture_full">The International Rugby Experience (IRE) is a striking seven-story cultural institution located in Limerick’s Georgian Quarter. Designed by Stirling Prize-winning Níall McLaughlin Architects, the building blends contemporary and historic architectural elements, honoring both the city’s heritage and the global sport of rugby. Situated on a tight urban site, the IRE was conceived as a civic landmark rather than a traditional townhouse. Its red-brick facade, with a rhythmic arrangement of brick piers and recessed bays, echoes the detailing of local churches and Georgian buildings. A grand entrance portico welcomes visitors, providing a sheltered public gathering space that fosters community interaction, particularly on match days.Inside, the museum features a dynamic vertical journey, leading visitors through a sequence of diverse spaces—some intimate and enclosed, others expansive and daylit. The building culminates in a dramatic public hall on the top floor, offering panoramic views over Limerick, acting as a beacon visible from across the city. Vaulted ceilings and structural brick detailing are key design elements, metaphorically reflecting the physical forces of rugby.The building’s design also prioritizes sustainability and structural integrity. Handmade clay bricks and red-pigmented pre-cast concrete ensure a seamless integration with Limerick’s historic fabric. Additionally, interactive exhibitions, digital displays, and event spaces are distributed across its levels, enhancing the visitor experience.More than a museum, the IRE serves as a vital urban landmark, strengthening connections between Limerick’s cultural sites, Munster Rugby, and the local community.</string>
+
+    <string name="exhibit_legendary_encounters">Legendary Encounters</string>
+    <string name="exhibit_legendary_encounters_short">Historic moments</string>
+    <string name="exhibit_legendary_encounters_full">Across each of the floors of the building, you will come across these Legendary Encounters. They feature several players who embody the value associated with each floor in the building. Passion: Peter O\'Mahony, Siya Kolisi, Agustin Pichot, Lawrence Dallaglio, Phaidra Knight Discipline: Johnny Sexton, Antoine Dupont, Nigel Owens, Integrity: Joy Neville Solidarity: Alun Wyn Jones, Conor Murray, Maggie Alphonsi, Pieter Steph Du Toit, Respect: Anthony Foley, Brian O\'Driscoll, Richie McCaw, Philippe Sella</string>
+
+    <string name="exhibit_global_grassroots">Global Grassroots</string>
+    <string name="exhibit_global_grassroots_short">Community impact</string>
+    <string name="exhibit_global_grassroots_full">Explore how rugby shapes communities and develops grassroots initiatives worldwide.</string>
+
+    <string name="exhibit_grassroots_tablets">Grassroots Initiatives Tablets</string>
+    <string name="exhibit_grassroots_tablets_short">Interactive learning</string>
+    <string name="exhibit_grassroots_tablets_full">Interactive tablets showcasing grassroots rugby initiatives from around the world.</string>
+
+    <string name="exhibit_legendary_beginnings">Legendary Beginnings</string>
+    <string name="exhibit_legendary_beginnings_short">Origins of rugby</string>
+    <string name="exhibit_legendary_beginnings_full">Discover the origins and early development of rugby.</string>
+
+    <string name="exhibit_ball_of_fame">Ball of Fame</string>
+    <string name="exhibit_ball_of_fame_short">Historic balls</string>
+    <string name="exhibit_ball_of_fame_full">A showcase of historic rugby balls that tell the story of the game\'s evolution.</string>
+
+    <string name="exhibit_handling_skills">Handling Skills</string>
+    <string name="exhibit_handling_skills_short">Ball handling</string>
+    <string name="exhibit_handling_skills_full">Master the art of handling the rugby ball with precision and control.</string>
+
+    <string name="exhibit_strength_technique">Strength &amp; Technique</string>
+    <string name="exhibit_strength_technique_short">Physical skills</string>
+    <string name="exhibit_strength_technique_full">Develop your strength and technique for scrummaging, tackling, and rucking.</string>
+
+    <string name="exhibit_running_skills">Running Skills</string>
+    <string name="exhibit_running_skills_short">Movement</string>
+    <string name="exhibit_running_skills_full">Learn the essential running techniques for different positions and situations.</string>
+
+    <string name="exhibit_kicking_skills">Kicking Skills</string>
+    <string name="exhibit_kicking_skills_short">Ball control</string>
+    <string name="exhibit_kicking_skills_full">Perfect your kicking technique for various game situations.</string>
+
+    <string name="exhibit_laws_game">Laws of the Game with Nigel Owens</string>
+    <string name="exhibit_laws_game_short">Rules presentation</string>
+    <string name="exhibit_laws_game_full">Learn the laws of rugby through an interactive presentation with legendary referee Nigel Owens.</string>
+
+    <string name="exhibit_be_referee">Be the Referee</string>
+    <string name="exhibit_be_referee_short">Decision making</string>
+    <string name="exhibit_be_referee_full">Test your knowledge of rugby laws by making real-time refereeing decisions.</string>
+
+    <string name="exhibit_find_position">Find your Position</string>
+    <string name="exhibit_find_position_short">Player roles</string>
+    <string name="exhibit_find_position_full">Discover which rugby position best suits your skills and attributes.</string>
+
+    <string name="exhibit_measure_up">Measure Up</string>
+    <string name="exhibit_measure_up_short">Player comparison</string>
+    <string name="exhibit_measure_up_full">Compare yourself to rugby\'s elite athletes.</string>
+
+    <string name="exhibit_whole_squad">Whole Squad</string>
+    <string name="exhibit_whole_squad_short">Team dynamics</string>
+    <string name="exhibit_whole_squad_full">Understanding the importance of every team member in rugby.</string>
+
+    <string name="exhibit_legendary_leaders">Legendary Leaders</string>
+    <string name="exhibit_legendary_leaders_short">Rugby leadership</string>
+    <string name="exhibit_legendary_leaders_full">Discover what makes great rugby leaders and how they inspire their teams.</string>
+
+    <string name="exhibit_teamwork_pitch">Teamwork on the Pitch</string>
+    <string name="exhibit_teamwork_pitch_short">Team coordination</string>
+    <string name="exhibit_teamwork_pitch_full">Experience how teams work together during crucial moments in the game.</string>
+
+    <string name="exhibit_team_spirit">Team Spirit Lockers</string>
+    <string name="exhibit_team_spirit_short">Team culture</string>
+    <string name="exhibit_team_spirit_full">Explore the unique traditions and spirit of rugby teams through their locker rooms.</string>
+
+    <string name="exhibit_club_culture">Club Culture Wall</string>
+    <string name="exhibit_club_culture_short">Club traditions</string>
+    <string name="exhibit_club_culture_full">Discover the rich traditions and cultures of rugby clubs worldwide.</string>
+
+    <string name="exhibit_legendary_nations_tablets">Legendary Nations Tablets</string>
+    <string name="exhibit_legendary_nations_tablets_short">National teams</string>
+    <string name="exhibit_legendary_nations_tablets_full">Interactive exploration of rugby\'s greatest national teams and their achievements.</string>
+
+    <string name="exhibit_global_growth">Global Growth Touchscreens</string>
+    <string name="exhibit_global_growth_short">Rugby worldwide</string>
+    <string name="exhibit_global_growth_full">Track the global expansion and development of rugby through interactive displays.</string>
+
+    <string name="exhibit_unity_respect">Unity &amp; Respect Wall</string>
+    <string name="exhibit_unity_respect_short">Rugby values</string>
+    <string name="exhibit_unity_respect_full">Celebrating rugby\'s core values of unity and respect across nations.</string>
+
+    <string name="exhibit_cube">The Cube</string>
+    <string name="exhibit_cube_short">Immersive experience</string>
+    <string name="exhibit_cube_full">An immersive audio-visual experience showcasing international rugby\'s greatest moments.</string>
+
+    <string name="exhibit_haka">Haka Presentation</string>
+    <string name="exhibit_haka_short">Cultural tradition</string>
+    <string name="exhibit_haka_full">Experience the power and significance of the Haka in rugby.</string>
+
+    <string name="exhibit_limerick_skyline">Limerick Skyline QR Tour</string>
+    <string name="exhibit_limerick_skyline_short">City views</string>
+    <string name="exhibit_limerick_skyline_full">Explore Limerick\'s landmarks through an interactive QR-guided tour of the skyline.</string>
+
+    <string name="exhibit_wall_of_fame">Wall of Fame</string>
+    <string name="exhibit_wall_of_fame_short">Rugby legends</string>
+    <string name="exhibit_wall_of_fame_full">Honor wall celebrating the greatest legends of rugby.</string>
+
+    <string name="exhibit_hall_of_fame">Hall of Fame Digital Archives</string>
+    <string name="exhibit_hall_of_fame_short">Historic archives</string>
+    <string name="exhibit_hall_of_fame_full">Digital collection preserving rugby\'s most memorable moments and legendary figures.</string>
+
+    <!-- UI Elements -->
+    <string name="explore">Explore</string>
+    <string name="explore_experience">Explore the Experience</string>
+    <string name="no_results">No results found</string>
+    <string name="provide_feedback">Provide Feedback</string>
+    <string name="share">Share</string>
+    <string name="banner_at_top">Banner at Top</string>
+    <string name="scan_qr_instruction">Position the QR code within the frame</string>
+
     <!-- Settings -->
-    <string name="settings_display_title">Taispeáint</string>
-    <string name="settings_dark_mode">Modh Dorcha</string>
-    <string name="settings_auto_play">Meáin Uathoibríoch</string>
-    <string name="settings_language_title">Teanga</string>
-    <string name="settings_select_language">Roghnaigh Teanga</string>
-    <string name="settings_about_title">Eolas</string>
-    <string name="settings_privacy_policy">Polasaí Príobháideachta</string>
-    <string name="settings_terms">Téarmaí Seirbhíse</string>
-    <string name="settings_version">Leagan %1$s</string>
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_exhibit_notifications">Exhibit Notifications</string>
+    <string name="settings_event_notifications">Event Notifications</string>
+    <string name="settings_appearance">Appearance</string>
+    <string name="settings_dark_mode">Dark Mode</string>
+    <string name="settings_font_size">Font Size</string>
+    <string name="settings_language_title">Language</string>
+    <string name="settings_select_language">Select Language</string>
+    <string name="settings_connect">Connect With Us</string>
+    <string name="settings_social_media">Social Media</string>
+    <string name="settings_review">Review us</string>
+    <string name="settings_directions">Directions</string>
+    <string name="settings_legal">Legal</string>
+    <string name="settings_privacy_policy">Privacy Policy</string>
+    <string name="settings_terms">Terms of Service</string>
+    <string name="settings_version">Version %1$s</string>
 
     <!-- Languages -->
-    <string name="language_english">Béarla</string>
-    <string name="language_irish">Gaeilge</string>
-    <string name="language_french">Fraincis</string>
-    <string name="language_german">Gearmáinis</string>
-</resources> 
+    <string name="language_english">English</string>
+    <string name="language_irish">Irish</string>
+    <string name="language_french">French</string>
+    <string name="language_german">German</string>
+
+    <!-- Search -->
+    <string name="search">Search</string>
+
+    <!-- Content Descriptions -->
+    <string name="cd_toggle_flashlight">Toggle Flashlight</string>
+    <string name="cd_visit_website">Visit Website</string>
+    <string name="cd_follow_instagram">Follow on Instagram</string>
+    <string name="cd_follow_facebook">Follow on Facebook</string>
+    <string name="cd_view_tripadvisor">View on TripAdvisor</string>
+    <string name="cd_get_directions">Get Directions</string>
+    <string name="cd_back_to_camera">Back to camera</string>
+    <string name="cd_switch_camera">Switch Camera</string>
+    <string name="cd_take_photo">Take Photo</string>
+    <string name="cd_gallery">Open Gallery</string>
+
+    <!-- Camera and Permissions -->
+    <string name="error_camera_permission">Camera permission is required</string>
+    <string name="error_storage_permission">Storage permission is required to access gallery</string>
+    <string name="error_camera_start">Failed to start camera</string>
+    <string name="msg_photo_captured">Photo captured!</string>
+    <string name="error_photo_capture">Failed to capture photo</string>
+    <string name="error_no_image">No image to share</string>
+    <string name="title_share_image">Share Image</string>
+    <string name="msg_qr_scanned">Scanned: %1$s</string>
+
+    <!-- Feedback -->
+    <string name="feedback_email">eamonngorman21@gmail.com</string>
+    <string name="feedback_subject">Feedback: %1$s</string>
+    <string name="feedback_body">Please provide your feedback about %1$s:\n\n</string>
+    <string name="feedback_chooser_title">Send feedback via:</string>
+
+    <!-- Share Screen -->
+    <string name="share_instructions">Capture your legendary moment with our special International Rugby Experience frame!</string>
+</resources>

@@ -3,20 +3,20 @@
     <item
         android:id="@+id/navigation_tour"
         android:icon="@drawable/ic_nav_tour"
-        android:title="Tour" />
+        android:title="@string/nav_tour" />
 
     <item
         android:id="@+id/navigation_share"
         android:icon="@drawable/ic_nav_share"
-        android:title="Share" />
+        android:title="@string/nav_share" />
 
     <item
         android:id="@+id/navigation_scan"
         android:icon="@drawable/ic_nav_scan"
-        android:title="Scan QR" />
+        android:title="@string/nav_scan" />
 
     <item
         android:id="@+id/navigation_settings"
         android:icon="@drawable/ic_nav_settings"
-        android:title="Settings" />
+        android:title="@string/nav_settings" />
 </menu> 

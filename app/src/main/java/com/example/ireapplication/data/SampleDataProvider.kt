@@ -18,6 +18,14 @@ object SampleDataProvider {
     }
 
     private var sampleData: List<FloorWithExhibits>? = null
+    private var cachedLanguage: String? = null
+
+    fun clearCache() {
+        sampleData = null
+        cachedLanguage = null
+        // Force garbage collection to ensure complete cache clear
+        System.gc()
+    }
 
     fun getFloors(context: Context): List<Floor> {
         return getSampleFloors(context).map { it.floor }
@@ -28,7 +36,16 @@ object SampleDataProvider {
     }
 
     fun getSampleFloors(context: Context): List<FloorWithExhibits> {
-        // Cache the sample data to avoid recreating it every time
+        // Get current language
+        val currentLanguage = context.resources.configuration.locales[0].language
+
+        // If language changed or no cache, reload data
+        if (sampleData == null || cachedLanguage != currentLanguage) {
+            cachedLanguage = currentLanguage
+            sampleData = null
+        }
+
+        // Return cached data if available
         if (sampleData != null) {
             return sampleData!!
         }
@@ -79,7 +96,7 @@ object SampleDataProvider {
                         name = context.getString(R.string.exhibit_global_grassroots),
                         shortDescription = context.getString(R.string.exhibit_global_grassroots_short),
                         fullDescription = context.getString(R.string.exhibit_global_grassroots_full),
-                        imageResourceId = R.drawable.exhibit_globalgrowth,
+                        imageResourceId = R.drawable.exhibit_grassroots,
                         floorId = FloorLevel.FIRST
                     ),
                     Exhibit(
@@ -160,7 +177,7 @@ object SampleDataProvider {
                         name = context.getString(R.string.exhibit_find_position),
                         shortDescription = context.getString(R.string.exhibit_find_position_short),
                         fullDescription = context.getString(R.string.exhibit_find_position_full),
-                        imageResourceId = R.drawable.exhibit_wholesquad,
+                        imageResourceId = R.drawable.exhibit_fyp,
                         floorId = FloorLevel.SECOND
                     ),
                     Exhibit(
@@ -254,6 +271,13 @@ object SampleDataProvider {
                         fullDescription = context.getString(R.string.exhibit_cube_full),
                         imageResourceId = R.drawable.exhibit_cube,
                         floorId = FloorLevel.FOURTH
+                    ),
+                    Exhibit(
+                        name = context.getString(R.string.exhibit_haka),
+                        shortDescription = context.getString(R.string.exhibit_haka_short),
+                        fullDescription = context.getString(R.string.exhibit_haka_full),
+                        imageResourceId = R.drawable.exhibit_haka,
+                        floorId = FloorLevel.FOURTH
                     )
                 )
             ),
@@ -266,13 +290,7 @@ object SampleDataProvider {
                     imageResourceId = R.drawable.floor_sixth
                 ),
                 exhibits = listOf(
-                    Exhibit(
-                        name = context.getString(R.string.exhibit_haka),
-                        shortDescription = context.getString(R.string.exhibit_haka_short),
-                        fullDescription = context.getString(R.string.exhibit_haka_full),
-                        imageResourceId = R.drawable.exhibit_haka,
-                        floorId = FloorLevel.SIXTH
-                    ),
+
                     Exhibit(
                         name = context.getString(R.string.exhibit_limerick_skyline),
                         shortDescription = context.getString(R.string.exhibit_limerick_skyline_short),

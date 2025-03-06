@@ -23,22 +23,35 @@ class SettingsRepository @Inject constructor(
     val settings: Flow<AppSettings> = _settings.asStateFlow()
 
     fun updateSettings(settings: AppSettings) {
+        android.util.Log.d("SettingsRepository", "Updating settings - language: ${settings.language}")
         prefs.edit().apply {
             putBoolean(KEY_EXHIBIT_NOTIFICATIONS, settings.exhibitNotificationsEnabled)
             putBoolean(KEY_EVENT_NOTIFICATIONS, settings.eventNotificationsEnabled)
             putBoolean(KEY_DARK_MODE, settings.darkModeEnabled)
             putFloat(KEY_FONT_SIZE, settings.fontSizeScale)
-            apply()
+            putString(KEY_LANGUAGE, settings.language)
+            commit()
         }
         _settings.value = settings
+        
+        // Double check the saved value
+        val savedLanguage = prefs.getString(KEY_LANGUAGE, "en")
+        android.util.Log.d("SettingsRepository", "Verified saved language: $savedLanguage")
+        
+        // Force reload settings
+        _settings.value = loadSettings()
     }
 
     private fun loadSettings(): AppSettings {
+        val language = prefs.getString(KEY_LANGUAGE, "en") ?: "en"
+        android.util.Log.d("SettingsRepository", "Loading settings - language: $language")
+        android.util.Log.d("SettingsRepository", "SharedPreferences file: ${prefs.all}")
         return AppSettings(
             exhibitNotificationsEnabled = prefs.getBoolean(KEY_EXHIBIT_NOTIFICATIONS, false),
             eventNotificationsEnabled = prefs.getBoolean(KEY_EVENT_NOTIFICATIONS, false),
             darkModeEnabled = prefs.getBoolean(KEY_DARK_MODE, false),
-            fontSizeScale = prefs.getFloat(KEY_FONT_SIZE, 1.0f)
+            fontSizeScale = prefs.getFloat(KEY_FONT_SIZE, 1.0f),
+            language = language
         )
     }
 
@@ -48,5 +61,6 @@ class SettingsRepository @Inject constructor(
         private const val KEY_EVENT_NOTIFICATIONS = "event_notifications"
         private const val KEY_DARK_MODE = "dark_mode"
         private const val KEY_FONT_SIZE = "font_size"
+        private const val KEY_LANGUAGE = "language"
     }
 } 

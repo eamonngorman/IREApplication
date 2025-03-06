@@ -145,34 +145,23 @@ class SettingsFragment : Fragment() {
             getString(R.string.language_german)
         )
 
-        val currentLocale = resources.configuration.locales[0]
-        val currentSelection = when (currentLocale.language) {
-            "ga" -> 1  // Irish
-            "fr" -> 2  // French
-            "de" -> 3  // German
-            else -> 0  // English (default)
-        }
+        val languageCodes = arrayOf("en", "ga", "fr", "de")
+        val currentSettings = viewModel.settings.value
+        val currentSelection = languageCodes.indexOf(currentSettings.language)
+        
+        android.util.Log.d("LanguageDialog", "Current language: ${currentSettings.language}")
+        android.util.Log.d("LanguageDialog", "Current selection index: $currentSelection")
+        android.util.Log.d("LanguageDialog", "Available languages: ${languageCodes.joinToString()}")
 
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(getString(R.string.settings_select_language))
             .setSingleChoiceItems(languages, currentSelection) { dialog, which ->
-                val locale = when (which) {
-                    1 -> Locale("ga")  // Irish
-                    2 -> Locale("fr")  // French
-                    3 -> Locale("de")  // German
-                    else -> Locale("en")  // English
-                }
-                updateLocale(locale)
+                val language = languageCodes[which]
+                android.util.Log.d("LanguageDialog", "Selected language: $language at position: $which")
+                viewModel.updateLanguage(language)
                 dialog.dismiss()
             }
             .show()
-    }
-
-    private fun updateLocale(locale: Locale) {
-        val config = Configuration(resources.configuration)
-        config.setLocale(locale)
-        resources.updateConfiguration(config, resources.displayMetrics)
-        requireActivity().recreate()
     }
 
     private fun updateDarkMode(enabled: Boolean) {

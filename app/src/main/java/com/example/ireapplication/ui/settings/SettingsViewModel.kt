@@ -1,11 +1,14 @@
 package com.example.ireapplication.ui.settings
 
+import android.content.Intent
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ireapplication.IREApplication
 import com.example.ireapplication.data.models.AppSettings
 import com.example.ireapplication.data.repository.SettingsRepository
 import com.example.ireapplication.utils.TextScaleUtils
+import com.example.ireapplication.data.SampleDataProvider
+import com.example.ireapplication.ui.splash.SplashActivity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -57,5 +60,43 @@ class SettingsViewModel @Inject constructor(
         )
         // Update the global font scale
         IREApplication.updateFontScale(quantizedScale)
+    }
+
+    fun updateLanguage(language: String) {
+        val currentSettings = settings.value
+        android.util.Log.d("LanguageChange", "Starting language change to: $language")
+        android.util.Log.d("LanguageChange", "Current language was: ${currentSettings.language}")
+        
+        try {
+            // Clear all caches first
+            android.util.Log.d("LanguageChange", "Clearing SampleDataProvider cache")
+            SampleDataProvider.clearCache()
+            
+            // Update settings in SharedPreferences
+            android.util.Log.d("LanguageChange", "Updating settings in SharedPreferences")
+            settingsRepository.updateSettings(
+                currentSettings.copy(language = language)
+            )
+            
+            // Update application locale
+            android.util.Log.d("LanguageChange", "Updating application locale")
+            IREApplication.getInstance().updateLanguage(language)
+            
+            // Create restart intent with language
+            android.util.Log.d("LanguageChange", "Creating restart intent")
+            val intent = Intent(IREApplication.getInstance(), SplashActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                putExtra("LANGUAGE_CHANGED", true)
+                putExtra("SELECTED_LANGUAGE", language)
+            }
+            
+            // Start new activity and kill current process
+            android.util.Log.d("LanguageChange", "Starting new activity and killing process")
+            IREApplication.getInstance().startActivity(intent)
+            android.os.Process.killProcess(android.os.Process.myPid())
+        } catch (e: Exception) {
+            android.util.Log.e("LanguageChange", "Error during language change", e)
+            throw e
+        }
     }
 } 

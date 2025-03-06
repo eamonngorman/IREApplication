@@ -19,16 +19,13 @@ class TourViewModel @Inject constructor(
     val floors = repository.allFloorsWithExhibits
 
     init {
-        // Load sample data on first launch
-        viewModelScope.launch {
-            val floors = SampleDataProvider.getFloors(application)
-            val exhibits = SampleDataProvider.getExhibits(application)
-            repository.populateDatabase(floors, exhibits)
-        }
+        refreshData()
     }
 
     fun refreshData() {
         viewModelScope.launch {
+            // Clear the cache to ensure we get fresh data
+            SampleDataProvider.clearCache()
             val floors = SampleDataProvider.getFloors(application)
             val exhibits = SampleDataProvider.getExhibits(application)
             repository.populateDatabase(floors, exhibits)

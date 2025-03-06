@@ -1,5 +1,7 @@
 package com.example.ireapplication
 
+import android.content.Context
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -17,12 +19,23 @@ import com.example.ireapplication.databinding.ActivityMainBinding
 import com.example.ireapplication.util.ErrorHandler
 import com.example.ireapplication.util.ErrorHandling
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(), ErrorHandling {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
+
+    override fun attachBaseContext(newBase: Context) {
+        val prefs = newBase.getSharedPreferences("ire_settings", Context.MODE_PRIVATE)
+        val language = prefs.getString("language", "en") ?: "en"
+        val locale = Locale(language)
+        val config = Configuration(newBase.resources.configuration)
+        Locale.setDefault(locale)
+        config.setLocale(locale)
+        super.attachBaseContext(newBase.createConfigurationContext(config))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
