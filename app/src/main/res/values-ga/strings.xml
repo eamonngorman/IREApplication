@@ -219,4 +219,7 @@
     <string name="exhibit_image_description">Image de l\'exposition</string>
     <string name="exhibit_title_description">Titre de l\'exposition</string>
     <string name="exhibit_description_description">Description détaillée de l\'exposition</string>
+
+    <string name="retake">Retake</string>
+
 </resources>

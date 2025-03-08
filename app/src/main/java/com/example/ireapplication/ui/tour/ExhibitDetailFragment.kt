@@ -32,6 +32,7 @@ class ExhibitDetailFragment : Fragment() {
         
         setupObservers()
         setupButtons()
+        setupAnimations()
         
         // Load exhibit data based on ID from arguments
         arguments?.getInt("exhibitId")?.let { exhibitId ->
@@ -45,6 +46,38 @@ class ExhibitDetailFragment : Fragment() {
         }
     }
 
+    private fun setupButtons() {
+        binding.feedbackButton.setOnClickListener {
+            showFeedbackDialog()
+        }
+    }
+
+    private fun setupAnimations() {
+        postponeEnterTransition()
+        binding.exhibitImage.viewTreeObserver.addOnPreDrawListener {
+            startPostponedEnterTransition()
+            true
+        }
+
+        // Animate feedback button
+        binding.feedbackButton.alpha = 0f
+        binding.feedbackButton.translationY = 100f
+        binding.feedbackButton.animate()
+            .alpha(1f)
+            .translationY(0f)
+            .setDuration(300)
+            .setStartDelay(300)
+            .start()
+
+        // Animate description text
+        binding.exhibitDescription.alpha = 0f
+        binding.exhibitDescription.animate()
+            .alpha(1f)
+            .setDuration(300)
+            .setStartDelay(200)
+            .start()
+    }
+
     private fun updateUI(exhibit: com.example.ireapplication.data.models.Exhibit) {
         binding.apply {
             exhibitTitle.text = exhibit.name
@@ -55,12 +88,6 @@ class ExhibitDetailFragment : Fragment() {
                 .placeholder(R.drawable.placeholder_image)
                 .error(R.drawable.error_image)
                 .into(exhibitImage)
-        }
-    }
-
-    private fun setupButtons() {
-        binding.feedbackButton.setOnClickListener {
-            showFeedbackDialog()
         }
     }
 

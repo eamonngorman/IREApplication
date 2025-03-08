@@ -120,28 +120,40 @@ class ShareFragment : Fragment() {
 
     private fun checkStoragePermissionAndOpenGallery() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            if (ContextCompat.checkSelfPermission(
+            // For Android 13 and above
+            when {
+                ContextCompat.checkSelfPermission(
                     requireContext(),
                     Manifest.permission.READ_MEDIA_IMAGES
-                ) == PackageManager.PERMISSION_GRANTED
-            ) {
-                openGallery()
-            } else {
-                requestStoragePermissionLauncher.launch(
-                    arrayOf(Manifest.permission.READ_MEDIA_IMAGES)
-                )
+                ) == PackageManager.PERMISSION_GRANTED -> {
+                    openGallery()
+                }
+                shouldShowRequestPermissionRationale(Manifest.permission.READ_MEDIA_IMAGES) -> {
+                    // Show explanation if needed
+                    Toast.makeText(context, getString(R.string.error_storage_permission), Toast.LENGTH_LONG).show()
+                    requestStoragePermissionLauncher.launch(arrayOf(Manifest.permission.READ_MEDIA_IMAGES))
+                }
+                else -> {
+                    requestStoragePermissionLauncher.launch(arrayOf(Manifest.permission.READ_MEDIA_IMAGES))
+                }
             }
         } else {
-            if (ContextCompat.checkSelfPermission(
+            // For Android 12 and below
+            when {
+                ContextCompat.checkSelfPermission(
                     requireContext(),
                     Manifest.permission.READ_EXTERNAL_STORAGE
-                ) == PackageManager.PERMISSION_GRANTED
-            ) {
-                openGallery()
-            } else {
-                requestStoragePermissionLauncher.launch(
-                    arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
-                )
+                ) == PackageManager.PERMISSION_GRANTED -> {
+                    openGallery()
+                }
+                shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE) -> {
+                    // Show explanation if needed
+                    Toast.makeText(context, getString(R.string.error_storage_permission), Toast.LENGTH_LONG).show()
+                    requestStoragePermissionLauncher.launch(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE))
+                }
+                else -> {
+                    requestStoragePermissionLauncher.launch(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE))
+                }
             }
         }
     }

@@ -46,7 +46,7 @@ class TourFragment : Fragment() {
             val percentage = abs(verticalOffset).toFloat() / scrollRange.toFloat()
             
             // Fade out the header content as the toolbar collapses
-            binding.headerContent.alpha = 1 - percentage
+            //binding.headerContent.alpha = 1 - percentage
         })
 
         // Set up the toolbar
