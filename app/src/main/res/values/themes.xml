@@ -71,4 +71,12 @@
         <item name="android:windowBackground">@color/dark_charcoal</item>
         <item name="android:windowDisablePreview">true</item>
     </style>
+
+    <!-- Dialog theme -->
+    <style name="Theme.IREApplication.Dialog" parent="ThemeOverlay.MaterialComponents.Dialog">
+        <item name="android:windowBackground">@color/black</item>
+        <item name="colorPrimary">@color/gold</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="android:textColorPrimary">@color/white</item>
+    </style>
 </resources>

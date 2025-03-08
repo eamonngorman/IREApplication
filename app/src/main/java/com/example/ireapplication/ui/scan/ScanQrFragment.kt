@@ -15,6 +15,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.ireapplication.databinding.FragmentScanQrBinding
+import com.example.ireapplication.util.ErrorHandler
+import com.example.ireapplication.R
+import com.google.common.util.concurrent.ListenableFuture
 import com.google.mlkit.vision.barcode.BarcodeScanner
 import com.google.mlkit.vision.barcode.BarcodeScannerOptions
 import com.google.mlkit.vision.barcode.BarcodeScanning
@@ -23,8 +26,6 @@ import com.google.mlkit.vision.common.InputImage
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
-import com.example.ireapplication.util.ErrorHandler
-import com.example.ireapplication.R
 
 @AndroidEntryPoint
 class ScanQrFragment : Fragment() {
@@ -126,11 +127,12 @@ class ScanQrFragment : Fragment() {
 
     private fun startCamera() {
         try {
-            val cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext())
+            val cameraProviderFuture: ListenableFuture<ProcessCameraProvider> = 
+                ProcessCameraProvider.getInstance(requireContext())
 
             cameraProviderFuture.addListener({
                 try {
-                    val cameraProvider = cameraProviderFuture.get()
+                    val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
 
                     // Preview use case
                     val preview = Preview.Builder().build()
@@ -162,7 +164,12 @@ class ScanQrFragment : Fragment() {
                             imageAnalysis
                         )
                     } catch (e: Exception) {
-                        Toast.makeText(context, getString(R.string.error_camera_start), Toast.LENGTH_SHORT).show()
+                        ErrorHandler.handleError(
+                            requireContext(),
+                            e,
+                            getString(R.string.error_camera_start),
+                            true
+                        )
                     }
                     ErrorHandler.logDebug("Camera started successfully")
                 } catch (e: Exception) {

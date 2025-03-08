@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "784224494746",
+    "project_id": "ireapplication",
+    "storage_bucket": "ireapplication.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784224494746:android:7619b5cc51bb02ac43ab23",
+        "android_client_info": {
+          "package_name": "com.example.ireapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBI_H7QZ7zJy_8dvnIxmzVwFCvsfYaXFyA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

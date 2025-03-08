@@ -202,7 +202,21 @@
     <string name="feedback_subject">Feedback: %1$s</string>
     <string name="feedback_body">Please provide your feedback about %1$s:\n\n</string>
     <string name="feedback_chooser_title">Send feedback via:</string>
+    <string name="feedback_title">Provide Feedback</string>
+    <string name="feedback_comment_hint">Your comments (optional)</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
 
     <!-- Share Screen -->
     <string name="share_instructions">Capture your legendary moment with our special International Rugby Experience frame!</string>
+
+    <!-- Audio Guide -->
+    <string name="audio_guide_description">Icône du guide audio</string>
+    <string name="audio_guide_available">Guide audio disponible</string>
+    <string name="play_audio">Lire l\'audio</string>
+
+    <!-- Accessibility -->
+    <string name="exhibit_image_description">Image de l\'exposition</string>
+    <string name="exhibit_title_description">Titre de l\'exposition</string>
+    <string name="exhibit_description_description">Description détaillée de l\'exposition</string>
 </resources>

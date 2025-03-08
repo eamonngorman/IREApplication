@@ -7,6 +7,7 @@ import android.content.res.Configuration
 import com.example.ireapplication.data.repository.SettingsRepository
 import com.example.ireapplication.ui.splash.SplashActivity
 import com.example.ireapplication.utils.TextScaleUtils
+import com.google.firebase.FirebaseApp
 import dagger.hilt.android.HiltAndroidApp
 import java.util.*
 
@@ -28,6 +29,7 @@ class IREApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         instance = this
+        FirebaseApp.initializeApp(this)
         
         // Load saved language
         val prefs = getSharedPreferences("ire_settings", Context.MODE_PRIVATE)
