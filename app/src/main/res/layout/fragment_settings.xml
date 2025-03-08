@@ -96,53 +96,59 @@
 
             <!-- Social Links -->
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="41dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
                     android:text="@string/settings_social_media"
-                    android:textAppearance="?attr/textAppearanceCaption"
-                    android:layout_marginBottom="8dp"/>
+                    android:textAppearance="?attr/textAppearanceCaption" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
                     <ImageButton
                         android:id="@+id/homeWebsiteButton"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_marginEnd="8dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="0dp"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:contentDescription="@string/cd_visit_website"
-                        android:src="@drawable/ic_web"
-                        android:tint="@color/gold"/>
+                        android:padding="5dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_home"
+                        android:tint="@color/gold" />
 
                     <ImageButton
                         android:id="@+id/instagramButton"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_marginEnd="8dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="0dp"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:contentDescription="@string/cd_follow_instagram"
+                        android:padding="5dp"
+                        android:scaleType="fitCenter"
                         android:src="@drawable/ic_instagram"
-                        android:tint="@color/gold"/>
+                        android:tint="@color/gold" />
 
                     <ImageButton
                         android:id="@+id/facebookButton"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:contentDescription="@string/cd_follow_facebook"
+                        android:padding="5dp"
+                        android:scaleType="fitCenter"
                         android:src="@drawable/ic_facebook"
-                        android:tint="@color/gold"/>
+                        android:tint="@color/gold" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -169,11 +175,14 @@
 
                     <ImageButton
                         android:id="@+id/tripadvisorButton"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:contentDescription="@string/cd_view_tripadvisor"
-                        android:src="@drawable/ic_tripadvisor"
+                        android:src="@drawable/tripadvisoraltered"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true"
+                        android:padding="5dp"
                         android:tint="@color/gold"/>
                 </LinearLayout>
             </LinearLayout>
@@ -196,11 +205,13 @@
 
             <ImageButton
                 android:id="@+id/googleMapsButton"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/cd_get_directions"
                 android:src="@drawable/ic_maps"
+                android:padding="0dp"
+                android:scaleType="fitCenter"
                 android:tint="@color/gold"/>
         </LinearLayout>
 
