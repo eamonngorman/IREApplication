@@ -97,6 +97,9 @@ class FloorsAdapter(
                 Log.e(TAG, "No image resource found for floor level: $floorLevel")
             }
             
+            // Adjust floor number circle size based on current font scale
+            adjustFloorNumberSize()
+            
             Glide.with(binding.floorImage)
                 .load(imageResource ?: R.drawable.error_image)
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
@@ -131,6 +134,42 @@ class FloorsAdapter(
             binding.exploreButton.setOnClickListener {
                 onItemClick(floorWithExhibits)
             }
+        }
+        
+        private fun adjustFloorNumberSize() {
+            // Get current font scale from configuration
+            val fontScale = binding.root.context.resources.configuration.fontScale
+            
+            // Calculate the appropriate size for the circle based on font scale
+            val baseSize = 40 // Original dp size for the circle
+            val baseTextSize = 20f // Original dp size for the text
+            
+            // Make the circle grow faster than default to accommodate the text
+            val newCircleSize = (baseSize * (1 + (fontScale - 1) * 0.8)).toInt()
+            
+            // Update the layout params for the floor number TextView
+            val params = binding.floorNumber.layoutParams
+            params.width = dpToPx(newCircleSize)
+            params.height = dpToPx(newCircleSize)
+            binding.floorNumber.layoutParams = params
+            
+            // Make the text grow but at a slightly slower rate than the circle to ensure it fits
+            // This ensures the text gets bigger with the scale, but doesn't overflow
+            val newTextSize = baseTextSize * (1 + (fontScale - 1) * 0.65f)
+            
+            // Set text size in device-independent pixels
+            binding.floorNumber.setTextSize(android.util.TypedValue.COMPLEX_UNIT_DIP, newTextSize)
+            
+            // Use bold text to ensure visibility
+            binding.floorNumber.setTypeface(null, android.graphics.Typeface.BOLD)
+            
+            // Log for debugging
+            Log.d(TAG, "Font scale: $fontScale, Circle size: $newCircleSize, Text size: $newTextSize")
+        }
+        
+        private fun dpToPx(dp: Int): Int {
+            val density = binding.root.resources.displayMetrics.density
+            return (dp * density).toInt()
         }
     }
 

@@ -14,7 +14,7 @@
         <item name="android:fontFamily">@font/barlow_condensed_medium</item>
         <item name="android:textAllCaps">true</item>
         <item name="textAllCaps">true</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">36sp</item>
         <item name="android:textColor">@color/gold</item>
         <item name="android:textFontWeight">500</item>
         <item name="android:letterSpacing">0.05</item>

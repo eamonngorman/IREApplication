@@ -22,6 +22,9 @@
         <item name="colorOnSurface">@color/on_surface</item>
         <item name="colorOnBackground">@color/on_background</item>
 
+        <!-- Text color -->
+        <item name="android:textColor">@color/white</item>
+        
         <!-- Font customization -->
         <item name="android:fontFamily">@font/barlow_condensed</item>
         <item name="fontFamily">@font/barlow_condensed</item>
@@ -78,5 +81,30 @@
         <item name="colorPrimary">@color/gold</item>
         <item name="colorOnPrimary">@color/black</item>
         <item name="android:textColorPrimary">@color/white</item>
+    </style>
+
+    <!-- High Contrast Theme -->
+    <style name="Theme.IREApplication.HighContrast" parent="Theme.IREApplication">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/high_contrast_primary</item>
+        <item name="colorOnPrimary">@color/high_contrast_on_primary</item>
+        
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/high_contrast_secondary</item>
+        <item name="colorOnSecondary">@color/high_contrast_on_secondary</item>
+        
+        <!-- Background colors -->
+        <item name="android:windowBackground">@color/high_contrast_background</item>
+        <item name="colorSurface">@color/high_contrast_surface</item>
+        <item name="colorOnSurface">@color/high_contrast_on_surface</item>
+        <item name="colorOnBackground">@color/high_contrast_on_background</item>
+        
+        <!-- Increased contrast for text -->
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        
+        <!-- Enhanced focus highlighting -->
+        <item name="colorControlActivated">@color/high_contrast_primary</item>
+        <item name="colorControlHighlight">@color/high_contrast_primary</item>
     </style>
 </resources>

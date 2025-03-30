@@ -20,20 +20,26 @@ object TextScaleUtils {
     }
 
     fun applyFontScale(activity: Activity, scale: Float) {
-        // Ensure the scale is properly quantized
-        val quantizedScale = quantizeScale(scale)
-        
-        val configuration = Configuration(activity.resources.configuration)
-        configuration.fontScale = quantizedScale
-        
-        // Create a new context with the updated configuration
-        val context = activity.createConfigurationContext(configuration)
-        
-        // Update the activity's resources configuration
-        activity.resources.updateConfiguration(configuration, activity.resources.displayMetrics)
-        
-        // Apply the new configuration
-        activity.resources.displayMetrics.scaledDensity = activity.resources.displayMetrics.density * quantizedScale
+        try {
+            // Ensure the scale is properly quantized
+            val quantizedScale = quantizeScale(scale)
+            
+            val configuration = Configuration(activity.resources.configuration)
+            configuration.fontScale = quantizedScale
+            
+            // Create a new context with the updated configuration
+            val context = activity.createConfigurationContext(configuration)
+            
+            // Update the activity's resources configuration
+            activity.resources.updateConfiguration(configuration, activity.resources.displayMetrics)
+            
+            // Apply the new configuration
+            activity.resources.displayMetrics.scaledDensity = activity.resources.displayMetrics.density * quantizedScale
+            
+            android.util.Log.d("TextScaleUtils", "Font scale applied to activity: $quantizedScale")
+        } catch (e: Exception) {
+            android.util.Log.e("TextScaleUtils", "Error applying font scale: ${e.message}", e)
+        }
     }
 
     fun quantizeScale(scale: Float): Float {

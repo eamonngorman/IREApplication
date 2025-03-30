@@ -18,6 +18,10 @@
         <item name="colorSurface">@color/surface</item>
         <item name="colorOnSurface">@color/on_surface</item>
         <item name="colorOnBackground">@color/on_background</item>
+        
+        <!-- Text color -->
+        <item name="android:textColor">@color/white</item>
+        
         <!-- Font customization -->
         <item name="android:fontFamily">@font/barlow_condensed</item>
         <item name="fontFamily">@font/barlow_condensed</item>
