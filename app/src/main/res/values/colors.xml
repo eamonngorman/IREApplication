@@ -23,6 +23,16 @@
     <color name="dark_surface">#FF1E1E1E</color>
     <color name="dark_error">#FFCF6679</color>
 
+    <!-- High Contrast Theme colors -->
+    <color name="high_contrast_background">#FF000000</color>
+    <color name="high_contrast_surface">#FF121212</color>
+    <color name="high_contrast_primary">#FFFFEB3B</color>
+    <color name="high_contrast_on_primary">#FF000000</color>
+    <color name="high_contrast_secondary">#FFFFEB3B</color>
+    <color name="high_contrast_on_secondary">#FF000000</color>
+    <color name="high_contrast_on_background">#FFFFFFFF</color>
+    <color name="high_contrast_on_surface">#FFFFFFFF</color>
+
     <!-- Additional colors for light theme -->
     <color name="light_background">#FFFFFFFF</color>
     <color name="light_surface">#FFF5F5F5</color>

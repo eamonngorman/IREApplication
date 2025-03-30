@@ -42,9 +42,9 @@
             android:layout_margin="16dp"
             android:background="@drawable/circle_background"
             android:gravity="center"
-            android:textSize="20sp"
+            android:textSize="20dp"
             android:textStyle="bold"
-            android:textColor="@android:color/white"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="1"/>
@@ -61,6 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/white"
                 tools:text="Floor Title"/>
 
             <TextView
@@ -69,6 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="@color/white"
                 android:maxLines="3"
                 android:ellipsize="end"
                 tools:text="Floor description goes here with details about what visitors can expect to see and experience on this floor."/>

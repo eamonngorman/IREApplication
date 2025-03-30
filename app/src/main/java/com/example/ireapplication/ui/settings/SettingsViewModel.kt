@@ -45,21 +45,35 @@ class SettingsViewModel @Inject constructor(
         )
     }
 
-    fun toggleDarkMode(enabled: Boolean) {
+    fun toggleHighContrast(enabled: Boolean) {
         val currentSettings = settings.value
         settingsRepository.updateSettings(
-            currentSettings.copy(darkModeEnabled = enabled)
+            currentSettings.copy(highContrastEnabled = enabled)
         )
     }
 
+    // This method only updates the selected font size in memory without applying it
+    fun updateSelectedFontSize(scale: Float) {
+        val quantizedScale = TextScaleUtils.quantizeScale(scale)
+        // We don't update shared preferences or apply the change yet
+        android.util.Log.d("SettingsViewModel", "Selected font size: $quantizedScale (not applied yet)")
+    }
+
+    // This method updates the font size in settings and applies it to the app
     fun updateFontSize(scale: Float) {
         val currentSettings = settings.value
         val quantizedScale = TextScaleUtils.quantizeScale(scale)
+        
+        // Update settings in repository
         settingsRepository.updateSettings(
             currentSettings.copy(fontSizeScale = quantizedScale)
         )
-        // Update the global font scale
-        IREApplication.updateFontScale(quantizedScale)
+        
+        // Update the global font scale via the companion object using the correct reference
+        // This avoids potential unresolved reference errors
+        com.example.ireapplication.IREApplication.updateFontScale(quantizedScale)
+        
+        android.util.Log.d("SettingsViewModel", "Font size updated and applied: $quantizedScale")
     }
 
     fun updateLanguage(language: String) {

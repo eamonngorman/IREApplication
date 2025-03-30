@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:text="@string/settings_notifications"
             android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textColor="@color/white"
             android:layout_marginBottom="8dp"/>
 
         <com.google.android.material.switchmaterial.SwitchMaterial
@@ -23,6 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/settings_exhibit_notifications"
+            android:textColor="@color/white"
             android:layout_marginBottom="8dp"/>
 
         <com.google.android.material.switchmaterial.SwitchMaterial
@@ -30,6 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/settings_event_notifications"
+            android:textColor="@color/white"
             android:layout_marginBottom="16dp"/>
 
         <!-- Appearance Section -->
@@ -38,30 +41,48 @@
             android:layout_height="wrap_content"
             android:text="@string/settings_appearance"
             android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textColor="@color/white"
             android:layout_marginBottom="8dp"/>
 
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/darkModeSwitch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/settings_dark_mode"
+            android:text="@string/settings_high_contrast"
+            android:textColor="@color/white"
             android:layout_marginBottom="8dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/settings_font_size"
+            android:textColor="@color/white"
             android:layout_marginBottom="4dp"/>
 
-        <com.google.android.material.slider.Slider
-            android:id="@+id/fontSizeSlider"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:valueFrom="0.8"
-            android:valueTo="1.4"
-            android:stepSize="0.1"
-            android:value="1.0"
-            android:layout_marginBottom="16dp"/>
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/fontSizeSlider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:valueFrom="1.0"
+                android:valueTo="3.0"
+                android:stepSize="0.2"
+                android:value="1.0"
+                android:layout_marginBottom="8dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/applyFontSizeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_apply_font_size"
+                android:layout_gravity="end"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+        </LinearLayout>
 
         <!-- Language Section -->
         <TextView

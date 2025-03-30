@@ -27,7 +27,7 @@ class SettingsRepository @Inject constructor(
         prefs.edit().apply {
             putBoolean(KEY_EXHIBIT_NOTIFICATIONS, settings.exhibitNotificationsEnabled)
             putBoolean(KEY_EVENT_NOTIFICATIONS, settings.eventNotificationsEnabled)
-            putBoolean(KEY_DARK_MODE, settings.darkModeEnabled)
+            putBoolean(KEY_HIGH_CONTRAST, settings.highContrastEnabled)
             putFloat(KEY_FONT_SIZE, settings.fontSizeScale)
             putString(KEY_LANGUAGE, settings.language)
             commit()
@@ -37,9 +37,6 @@ class SettingsRepository @Inject constructor(
         // Double check the saved value
         val savedLanguage = prefs.getString(KEY_LANGUAGE, "en")
         android.util.Log.d("SettingsRepository", "Verified saved language: $savedLanguage")
-        
-        // Force reload settings
-        _settings.value = loadSettings()
     }
 
     private fun loadSettings(): AppSettings {
@@ -49,7 +46,7 @@ class SettingsRepository @Inject constructor(
         return AppSettings(
             exhibitNotificationsEnabled = prefs.getBoolean(KEY_EXHIBIT_NOTIFICATIONS, false),
             eventNotificationsEnabled = prefs.getBoolean(KEY_EVENT_NOTIFICATIONS, false),
-            darkModeEnabled = prefs.getBoolean(KEY_DARK_MODE, false),
+            highContrastEnabled = prefs.getBoolean(KEY_HIGH_CONTRAST, false),
             fontSizeScale = prefs.getFloat(KEY_FONT_SIZE, 1.0f),
             language = language
         )
@@ -59,7 +56,7 @@ class SettingsRepository @Inject constructor(
         private const val PREFS_NAME = "ire_settings"
         private const val KEY_EXHIBIT_NOTIFICATIONS = "exhibit_notifications"
         private const val KEY_EVENT_NOTIFICATIONS = "event_notifications"
-        private const val KEY_DARK_MODE = "dark_mode"
+        private const val KEY_HIGH_CONTRAST = "high_contrast"
         private const val KEY_FONT_SIZE = "font_size"
         private const val KEY_LANGUAGE = "language"
     }

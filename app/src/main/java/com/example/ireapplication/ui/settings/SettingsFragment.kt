@@ -14,6 +14,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.ireapplication.BuildConfig
+import com.example.ireapplication.IREApplication
 import com.example.ireapplication.R
 import com.example.ireapplication.databinding.FragmentSettingsBinding
 import com.example.ireapplication.utils.TextScaleUtils
@@ -65,7 +66,7 @@ class SettingsFragment : Fragment() {
                 viewModel.settings.collect { settings ->
                     binding.exhibitNotificationsSwitch.isChecked = settings.exhibitNotificationsEnabled
                     binding.eventNotificationsSwitch.isChecked = settings.eventNotificationsEnabled
-                    binding.darkModeSwitch.isChecked = settings.darkModeEnabled
+                    binding.darkModeSwitch.isChecked = settings.highContrastEnabled
                     
                     val currentValue = binding.fontSizeSlider.value
                     val newValue = TextScaleUtils.quantizeScale(settings.fontSizeScale)
@@ -87,18 +88,42 @@ class SettingsFragment : Fragment() {
         }
 
         binding.darkModeSwitch.setOnCheckedChangeListener { _, isChecked ->
-            viewModel.toggleDarkMode(isChecked)
-            updateDarkMode(isChecked)
+            viewModel.toggleHighContrast(isChecked)
+            updateContrastMode(isChecked)
         }
 
+        // Only store the font size value when slider changes, don't apply it
         binding.fontSizeSlider.addOnChangeListener { _, value, fromUser ->
             if (fromUser) {
                 val quantizedValue = TextScaleUtils.quantizeScale(value.coerceIn(TextScaleUtils.MIN_SCALE, TextScaleUtils.MAX_SCALE))
                 if (quantizedValue != value) {
                     binding.fontSizeSlider.value = quantizedValue
                 }
-                viewModel.updateFontSize(quantizedValue)
-                activity?.let { TextScaleUtils.applyFontScale(it, quantizedValue) }
+                // Only store the selected value in ViewModel, don't apply it yet
+                viewModel.updateSelectedFontSize(quantizedValue)
+            }
+        }
+        
+        // Apply the font size only when the Apply button is clicked
+        binding.applyFontSizeButton.setOnClickListener {
+            val fontScale = binding.fontSizeSlider.value
+            val quantizedValue = TextScaleUtils.quantizeScale(fontScale)
+            
+            // Update settings and apply font scale to the app
+            viewModel.updateFontSize(quantizedValue)
+            
+            // Apply font scaling to current activity
+            activity?.let { activity ->
+                // Apply the font scale
+                TextScaleUtils.applyFontScale(activity, quantizedValue)
+                
+                // Log the current font scale for debugging
+                android.util.Log.d("SettingsFragment", "Applied font scale: $quantizedValue, " +
+                    "fontScale in config: ${resources.configuration.fontScale}")
+                
+                // Force update the UI by recreating the activity
+                android.util.Log.d("SettingsFragment", "Recreating activity to apply font scale")
+                activity.recreate()
             }
         }
 
@@ -164,11 +189,30 @@ class SettingsFragment : Fragment() {
             .show()
     }
 
-    private fun updateDarkMode(enabled: Boolean) {
+    private fun updateContrastMode(enabled: Boolean) {
+        // Check if the high contrast mode has actually changed
+        if (IREApplication.isHighContrastEnabled() == enabled) {
+            return // No change, don't recreate the activity
+        }
+        
+        // Apply system dark mode
         AppCompatDelegate.setDefaultNightMode(
             if (enabled) AppCompatDelegate.MODE_NIGHT_YES
             else AppCompatDelegate.MODE_NIGHT_NO
         )
+        
+        // Update the application-wide high contrast setting
+        IREApplication.updateHighContrast(enabled)
+        
+        // Apply high contrast theme if enabled
+        if (enabled) {
+            activity?.setTheme(R.style.Theme_IREApplication_HighContrast)
+        } else {
+            activity?.setTheme(R.style.Theme_IREApplication)
+        }
+        
+        // Re-create the activity to apply the theme change
+        activity?.recreate()
     }
 
     private fun openAppOrWebPage(appUrl: String, webUrl: String) {

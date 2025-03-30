@@ -155,7 +155,9 @@
     <string name="settings_event_notifications">Veranstaltungsbenachrichtigungen</string>
     <string name="settings_appearance">Erscheinungsbild</string>
     <string name="settings_dark_mode">Dunkler Modus</string>
+    <string name="settings_high_contrast">Hochkontrastmodus</string>
     <string name="settings_font_size">Schriftgröße</string>
+    <string name="settings_apply_font_size">Anwenden</string>
     <string name="settings_language_title">Sprache</string>
     <string name="settings_select_language">Sprache auswählen</string>
     <string name="settings_connect">Verbinden Sie sich mit uns</string>

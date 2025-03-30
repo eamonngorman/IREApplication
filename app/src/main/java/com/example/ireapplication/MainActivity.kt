@@ -30,14 +30,36 @@ class MainActivity : AppCompatActivity(), ErrorHandling {
     override fun attachBaseContext(newBase: Context) {
         val prefs = newBase.getSharedPreferences("ire_settings", Context.MODE_PRIVATE)
         val language = prefs.getString("language", "en") ?: "en"
+        val fontScale = prefs.getFloat("font_size", 1.0f)
+        
         val locale = Locale(language)
         val config = Configuration(newBase.resources.configuration)
+        
+        // Set locale
         Locale.setDefault(locale)
         config.setLocale(locale)
+        
+        // Set font scale
+        config.fontScale = fontScale
+        
         super.attachBaseContext(newBase.createConfigurationContext(config))
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Check if high contrast is enabled and apply theme before super.onCreate
+        val prefs = getSharedPreferences("ire_settings", Context.MODE_PRIVATE)
+        val highContrastEnabled = prefs.getBoolean("high_contrast", false)
+        val fontScale = prefs.getFloat("font_size", 1.0f)
+        
+        // Apply font scale to current activity
+        val configuration = resources.configuration
+        configuration.fontScale = fontScale
+        resources.updateConfiguration(configuration, resources.displayMetrics)
+        
+        if (highContrastEnabled) {
+            setTheme(R.style.Theme_IREApplication_HighContrast)
+        }
+        
         super.onCreate(savedInstanceState)
         
         try {

@@ -154,7 +154,9 @@
     <string name="settings_event_notifications">Notifications d\'événements</string>
     <string name="settings_appearance">Apparence</string>
     <string name="settings_dark_mode">Mode sombre</string>
+    <string name="settings_high_contrast">Mode contraste élevé</string>
     <string name="settings_font_size">Taille de police</string>
+    <string name="settings_apply_font_size">Appliquer</string>
     <string name="settings_language_title">Langue</string>
     <string name="settings_select_language">Sélectionner la langue</string>
     <string name="settings_connect">Connectez-vous avec nous</string>

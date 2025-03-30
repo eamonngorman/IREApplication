@@ -154,7 +154,9 @@
     <string name="settings_event_notifications">Fógraí Imeachta</string>
     <string name="settings_appearance">Cuma</string>
     <string name="settings_dark_mode">Mód Dorcha</string>
+    <string name="settings_high_contrast">Mód Codarsnachta Ard</string>
     <string name="settings_font_size">Méid Cló</string>
+    <string name="settings_apply_font_size">Cuir i bhFeidhm</string>
     <string name="settings_language_title">Teanga</string>
     <string name="settings_select_language">Roghnaigh Teanga</string>
     <string name="settings_connect">Ceangail Linn</string>
