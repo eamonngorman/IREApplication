@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">IREApplication</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <!-- Navigation -->
+    <string name="nav_tour">Visite</string>
+    <string name="nav_share">Partager</string>
+    <string name="nav_scan">Scanner QR</string>
+    <string name="nav_settings">Paramètres</string>
+    <string name="nav_floor_exhibits">Expositions par étage</string>
+    <string name="nav_exhibit_detail">Détail de l\'exposition</string>
+    <string name="nav_search_results">Résultats de recherche</string>
+
+    <!-- Floors -->
+    <string name="floor_general">GÉNÉRAL</string>
+    <string name="floor_general_desc">Expositions et informations générales</string>
+    <string name="floor_legendary_beginnings">DÉBUTS LÉGENDAIRES</string>
+    <string name="floor_legendary_beginnings_desc">Premier étage - Origines et développement</string>
+    <string name="floor_legendary_skills">COMPÉTENCES LÉGENDAIRES</string>
+    <string name="floor_legendary_skills_desc">Deuxième étage - Compétences et techniques</string>
+    <string name="floor_legendary_teams">ÉQUIPES LÉGENDAIRES</string>
+    <string name="floor_legendary_teams_desc">Troisième étage - Équipe et leadership</string>
+    <string name="floor_legendary_nations">NATIONS LÉGENDAIRES</string>
+    <string name="floor_legendary_nations_desc">Quatrième étage - Rugby international</string>
+    <string name="floor_hall_of_legends">TEMPLE DE LA RENOMMÉE</string>
+    <string name="floor_hall_of_legends_desc">Sixième étage - Célébration des plus grands du rugby</string>
+
+    <!-- Exhibits -->
+    <string name="exhibit_tunnel_intro">Vidéo d\'introduction du tunnel</string>
+    <string name="exhibit_tunnel_intro_short">Bienvenue au rugby</string>
+    <string name="exhibit_tunnel_intro_full">Une introduction immersive au monde du rugby, préparant votre voyage à travers ce sport incroyable. Narrée par la légende du rugby irlandais Paul O\'Connell, cette vidéo vous présentera les cinq valeurs fondamentales du jeu : Passion, Discipline, Intégrité, Solidarité et Respect. Avec une production à 270°, assurez-vous de rester près du mur du fond pour tout voir.</string>
+
+    <string name="exhibit_building_architecture">Architecture du bâtiment</string>
+    <string name="exhibit_building_architecture_short">Design du bâtiment</string>
+    <string name="exhibit_building_architecture_full">L\'International Rugby Experience (IRE) est une institution culturelle remarquable de sept étages située dans le quartier géorgien de Limerick. Conçu par Níall McLaughlin Architects, lauréat du prix Stirling, le bâtiment mélange des éléments architecturaux contemporains et historiques, honorant à la fois le patrimoine de la ville et le sport mondial du rugby. Situé sur un site urbain étroit, l\'IRE a été conçu comme un monument civique plutôt qu\'une maison de ville traditionnelle. Sa façade en briques rouges, avec un arrangement rythmique de piliers et de baies en retrait, fait écho aux détails des églises locales et des bâtiments géorgiens. Un grand portique d\'entrée accueille les visiteurs, offrant un espace de rassemblement public abrité. À l\'intérieur, le musée présente un parcours vertical dynamique, guidant les visiteurs à travers une séquence d\'espaces divers - certains intimes et fermés, d\'autres vastes et éclairés par la lumière du jour. Le bâtiment culmine dans un temple de la renommée spectaculaire au dernier étage, offrant des vues panoramiques sur Limerick, agissant comme un phare visible depuis toute la ville. Les plafonds voûtés et les détails structurels en brique sont des éléments de design clés, reflétant métaphoriquement les forces physiques du rugby. La conception du bâtiment privilégie également la durabilité et l\'intégrité structurelle. Des briques d\'argile faites à la main et du béton préfabriqué pigmenté en rouge assurent une intégration harmonieuse avec le tissu historique de Limerick. De plus, des expositions interactives, des écrans numériques et des espaces événementiels sont répartis sur ses différents niveaux, améliorant l\'expérience des visiteurs. Plus qu\'un musée, l\'IRE sert de point de repère urbain vital, renforçant les connexions entre les sites culturels de Limerick et la communauté locale.</string>
+
+    <string name="exhibit_legendary_encounters">Rencontres légendaires</string>
+    <string name="exhibit_legendary_encounters_short">Moments historiques</string>
+    <string name="exhibit_legendary_encounters_full">À travers les étages du bâtiment, vous découvrirez ces Rencontres Légendaires. Elles mettent en vedette plusieurs joueurs qui incarnent la valeur associée à chaque étage du bâtiment. Passion : Peter O\'Mahony, Siya Kolisi, Agustin Pichot, Lawrence Dallaglio, Phaidra Knight Discipline : Johnny Sexton, Antoine Dupont, Nigel Owens, Ciara Griffin Intégrité : Joy Neville, John Eales Solidarité : Alun Wyn Jones, Conor Murray, Maggie Alphonsi, Pieter Steph Du Toit, Respect : Anthony Foley, Brian O\'Driscoll, Richie McCaw, Philippe Sella, Fiao\'o Fa\'amausili</string>
+
+    <string name="exhibit_global_grassroots">Développement mondial</string>
+    <string name="exhibit_global_grassroots_short">Impact communautaire</string>
+    <string name="exhibit_global_grassroots_full">Découvrez comment le rugby façonne les communautés et développe des initiatives locales dans le monde entier. Apprenez-en plus sur le succès olympique du Rugby à 7 à Fidji, l\'équipe de tournée des NZ Natives (Maori), les origines du tee de frappe créé par George Simpkin, l\'importance du rugby dans les communautés minières au Pays de Galles, la Future Hope Foundation créée par Tim Grandage en Inde ainsi que les efforts de Xhino Drangu pour étendre le jeu en Albanie</string>
+
+    <string name="exhibit_grassroots_tablets">Tablettes d\'initiatives locales</string>
+    <string name="exhibit_grassroots_tablets_short">Apprentissage interactif</string>
+    <string name="exhibit_grassroots_tablets_full">Tablettes interactives présentant les initiatives de rugby local du monde entier et le travail qu\'elles accomplissent. SOS Kit Aid, Child Fund Rugby, Mixed Ability Sport figurent parmi les histoires racontées ici.</string>
+
+    <string name="exhibit_legendary_beginnings">Débuts légendaires</string>
+    <string name="exhibit_legendary_beginnings_short">Origines du rugby</string>
+    <string name="exhibit_legendary_beginnings_full">Découvrez les origines et le développement initial de plusieurs superstars mondiales du rugby telles que Thierry Dusautoir, David Pocock, Owen Farrell, Ciara Griffin et Greg O\'Shea.</string>
+
+    <string name="exhibit_ball_of_fame">Ballon de la gloire</string>
+    <string name="exhibit_ball_of_fame_short">Ballons historiques</string>
+    <string name="exhibit_ball_of_fame_full">Une exposition de ballons de rugby historiques qui racontent l\'évolution du jeu. Parmi les stars emblématiques qui ont honoré l\'International Rugby Experience figurent Brian O\'Driscoll, Bryan Habana, Sean Fitzpatrick, Francois Pienaar, Keith Wood, Paul O\'Connell, Matt Dawson, Jeremy Guscott, Joy Neville, Martin Johnson, Rory Best, Peter Stringer et un possible imposteur, l\'auteur à succès Ross O\'Carroll Kelly</string>
+
+    <string name="exhibit_handling_skills">Techniques de manipulation</string>
+    <string name="exhibit_handling_skills_short">Maniement du ballon</string>
+    <string name="exhibit_handling_skills_full">Maîtrisez l\'art de manipuler et de passer le ballon de rugby avec précision et contrôle. Présenté par Faf de Klerk</string>
+
+    <string name="exhibit_strength_technique">Force et technique</string>
+    <string name="exhibit_strength_technique_short">Compétences physiques</string>
+    <string name="exhibit_strength_technique_full">Développez votre force, votre puissance et votre technique pour la mêlée, le plaquage et le ruck. Présenté par Tadhg Furlong</string>
+
+    <string name="exhibit_running_skills">Techniques de course</string>
+    <string name="exhibit_running_skills_short">Mouvement</string>
+    <string name="exhibit_running_skills_full">Apprenez les techniques de course essentielles pour différentes positions et situations telles que le crochet, l\'évitement du défenseur et la course de réaction. Présenté par Keith Earls</string>
+
+    <string name="exhibit_kicking_skills">Techniques de frappe</string>
+    <string name="exhibit_kicking_skills_short">Contrôle du ballon</string>
+    <string name="exhibit_kicking_skills_full">Perfectionnez votre technique de frappe pour diverses situations de jeu en pratiquant le dégagement, la frappe offensive et le tir au but. Présenté par Jonny Wilkinson</string>
+
+    <string name="exhibit_laws_game">Lois du jeu avec Nigel Owens</string>
+    <string name="exhibit_laws_game_short">Présentation des règles</string>
+    <string name="exhibit_laws_game_full">Apprenez les lois du rugby à travers une présentation audiovisuelle avec l\'arbitre légendaire Nigel Owens. Vous découvrirez des domaines clés tels que la ligne de hors-jeu, le ruck, le maul, la touche et la mêlée.</string>
+
+    <string name="exhibit_be_referee">Devenez arbitre</string>
+    <string name="exhibit_be_referee_short">Prise de décision</string>
+    <string name="exhibit_be_referee_full">Testez vos connaissances des lois du rugby en regardant des extraits de la Coupe du Monde de Rugby et en prenant des décisions d\'arbitrage basées sur votre connaissance des lois. Les équipes présentées incluent l\'Écosse, Samoa, l\'Australie, Fidji, la Géorgie, la Nouvelle-Zélande, l\'Angleterre, le Japon, l\'Afrique du Sud et le Pays de Galles</string>
+
+    <string name="exhibit_find_position">Trouvez votre position</string>
+    <string name="exhibit_find_position_short">Rôles des joueurs</string>
+    <string name="exhibit_find_position_full">Découvrez quelle position de rugby correspond le mieux à vos compétences et attributs en fonction de vos résultats aux quatre jeux de compétences clés à l\'étage : Manipulation, Frappe, Course et Force &amp; Technique.</string>
+
+    <string name="exhibit_measure_up">Comparez-vous</string>
+    <string name="exhibit_measure_up_short">Comparaison avec les joueurs</string>
+    <string name="exhibit_measure_up_full">Comparez-vous à la taille de certains des athlètes d\'élite du rugby tels que Serge Blanco, Uini Atonio, Richie McCaw, Richard Metcalfe, Jonah Lomu et Emily Scarratt</string>
+
+    <string name="exhibit_whole_squad">L\'équipe complète</string>
+    <string name="exhibit_whole_squad_short">Dynamique d\'équipe</string>
+    <string name="exhibit_whole_squad_full">Comprendre l\'importance de tous ceux qui sont impliqués dans la préparation de l\'équipe au rugby. Cette présentation interactive se concentre sur l\'équipe de l\'arrière-plan à Munster où vous pouvez en apprendre davantage sur les rôles de l\'entraîneur principal, du jardinier, du physiothérapeute, du directeur du stade et du nutritionniste.</string>
+
+    <string name="exhibit_legendary_leaders">Leaders légendaires</string>
+    <string name="exhibit_legendary_leaders_short">Leadership au rugby</string>
+    <string name="exhibit_legendary_leaders_full">Découvrez ce qui fait les grands leaders du rugby et comment ils inspirent leurs équipes. Cette section présente des discussions sur Jonny Wilkinson, Jim Telfer, Sir Ian McGeechan et Joe Schmidt. Présenté par des noms tels que Gavin Hastings, Bryan Habana, Will Greenwood, Rob Kearney, Jamie Heaslip, Brian O\'Driscoll</string>
+
+    <string name="exhibit_teamwork_pitch">Travail d\'équipe sur le terrain</string>
+    <string name="exhibit_teamwork_pitch_short">Coordination d\'équipe</string>
+    <string name="exhibit_teamwork_pitch_full">Découvrez comment les équipes travaillent ensemble pendant les moments cruciaux du match. Dans ce jeu de réalité virtuelle immersif, vous effectuerez quelques exercices de passe de base en tant qu\'unité. Le jeu nécessite trois joueurs. Une vidéo d\'introduction par Keith Wood est disponible des deux côtés de l\'aire de jeu.</string>
+
+    <string name="exhibit_team_spirit">Esprit d\'équipe dans les vestiaires</string>
+    <string name="exhibit_team_spirit_short">Culture d\'équipe</string>
+    <string name="exhibit_team_spirit_full">Explorez les traditions uniques et l\'esprit des équipes de rugby à travers leurs vestiaires. Dans chaque deuxième casier, vous trouverez une histoire sur la fraternité et la sororité dans le rugby. Découvrez l\'importance de l\'unité irlandaise dans le sport avec Jack Kyle, un adieu légendaire au grand Jonah Lomu, ainsi qu\'une fraternité à vie entre Ronan O\'Gara et Peter Stringer.</string>
+
+    <string name="exhibit_club_culture">Mur de la culture des clubs</string>
+    <string name="exhibit_club_culture_short">Traditions des clubs</string>
+    <string name="exhibit_club_culture_full">Découvrez les riches traditions et cultures des clubs de rugby du monde entier. Sur ce mur, nous présentons huit des équipes les plus emblématiques du rugby mondial : Les Crusaders, Les Barbarians, Les Lions britanniques et irlandais, Llanelli RFC, Leicester Tigers, Toulouse, Munster, Richmond RFC</string>
+
+    <string name="exhibit_legendary_nations_tablets">Tablettes des nations légendaires</string>
+    <string name="exhibit_legendary_nations_tablets_short">Équipes nationales</string>
+    <string name="exhibit_legendary_nations_tablets_full">Exploration interactive des plus grandes équipes nationales de rugby et de leurs réalisations. Sur ces tablettes, vous pourrez en apprendre davantage sur les meilleures équipes du rugby mondial, leurs supporters et les cultures distinctes qui forment la riche tapisserie du rugby mondial.</string>
+
+    <string name="exhibit_global_growth">Écrans tactiles de croissance mondiale</string>
+    <string name="exhibit_global_growth_short">Rugby dans le monde</string>
+    <string name="exhibit_global_growth_full">Suivez l\'expansion et le développement mondial du rugby à travers des présentations interactives. À l\'aide des écrans tactiles interactifs, vous pouvez consulter les statistiques du rugby mondial et regarder une présentation détaillant la croissance du jeu à travers le monde, des humbles débuts de World Rugby (alors l\'International Rugby Board) dans les années 1880 jusqu\'à nos jours.</string>
+
+    <string name="exhibit_unity_respect">Mur de l\'unité et du respect</string>
+    <string name="exhibit_unity_respect_short">Valeurs du rugby</string>
+    <string name="exhibit_unity_respect_full">Célébration des valeurs fondamentales d\'unité et de respect du rugby à travers les nations. Ici, vous pouvez prendre les téléphones pour écouter des histoires du monde entier qui mettent en évidence les liens de respect qui unifient notre jeu mondial. Avec : Francois Pienaar, Willie John McBride, Malakai Fekitoa, John Eales, Tara Flanagan</string>
+
+    <string name="exhibit_cube">Le Cube</string>
+    <string name="exhibit_cube_short">Expérience immersive</string>
+    <string name="exhibit_cube_full">Une expérience audio-visuelle immersive présentant les plus grandes équipes du rugby international avec une présentation visuelle sur quatre murs accompagnée d\'hymnes nationaux.</string>
+
+    <string name="exhibit_haka">Présentation du Haka</string>
+    <string name="exhibit_haka_short">Tradition culturelle</string>
+    <string name="exhibit_haka_full">Découvrez la puissance et la signification du Haka dans le rugby et son importance pour les All Blacks et la Nouvelle-Zélande. Cette courte présentation explorera l\'histoire et la culture derrière le Haka ainsi que le Haka iconique qui a précédé la finale de la Coupe du Monde de Rugby en Nouvelle-Zélande en 2011.</string>
+
+    <string name="exhibit_limerick_skyline">Visite QR de la ligne d\'horizon de Limerick</string>
+    <string name="exhibit_limerick_skyline_short">Vues de la ville</string>
+    <string name="exhibit_limerick_skyline_full">Explorez les monuments de Limerick à travers une visite interactive guidée par QR de la ligne d\'horizon. Scanner les codes QR vous donnera des informations supplémentaires sur chaque monument et les identifiera dans la ligne d\'horizon de Limerick, tels que le château du roi Jean, la cathédrale Sainte-Marie et Thomond Park, le stade de Munster visible près de l\'ascenseur.</string>
+
+    <string name="exhibit_wall_of_fame">Mur de la Gloire</string>
+    <string name="exhibit_wall_of_fame_short">Légendes du rugby</string>
+    <string name="exhibit_wall_of_fame_full">Mur d\'honneur célébrant les plus grandes légendes du rugby. Au centre, vous pouvez voir tous les critères de sélection pour le Temple de la Renommée de l\'International Rugby Experience, et chaque année identifie quand ce joueur a rencontré pour la première fois l\'un des critères ci-dessus.</string>
+
+    <string name="exhibit_hall_of_fame">Archives numériques du Temple de la Renommée</string>
+    <string name="exhibit_hall_of_fame_short">Archives historiques</string>
+    <string name="exhibit_hall_of_fame_full">Collection numérique préservant les figures les plus légendaires du rugby. Ces archives numériques stockent des informations sur tous les membres du Temple de la Renommée de l\'International Rugby Experience. Vous pouvez tout apprendre sur les joueurs listés sur le Mur de la Gloire dans le Temple des Légendes, ainsi que sélectionner votre propre Dream XV et voir comment il se compare à celui de vos amis et de votre famille</string>
+
+    <!-- UI Elements -->
+    <string name="explore">Explorer</string>
+    <string name="explore_experience">Explorez l\'expérience</string>
+    <string name="no_results">Aucun résultat trouvé</string>
+    <string name="provide_feedback">Donner votre avis</string>
+    <string name="share">Partager</string>
+    <string name="banner_at_top">Bannière en haut</string>
+    <string name="scan_qr_instruction">Positionnez le code QR dans le cadre</string>
+
+    <!-- Settings -->
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_exhibit_notifications">Notifications d\'exposition</string>
+    <string name="settings_event_notifications">Notifications d\'événements</string>
+    <string name="settings_appearance">Apparence</string>
+    <string name="settings_dark_mode">Mode sombre</string>
+    <string name="settings_font_size">Taille de police</string>
+    <string name="settings_language_title">Langue</string>
+    <string name="settings_select_language">Sélectionner la langue</string>
+    <string name="settings_connect">Connectez-vous avec nous</string>
+    <string name="settings_social_media">Réseaux sociaux</string>
+    <string name="settings_review">Évaluez-nous</string>
+    <string name="settings_directions">Itinéraire</string>
+    <string name="settings_legal">Mentions légales</string>
+    <string name="settings_privacy_policy">Politique de confidentialité</string>
+    <string name="settings_terms">Conditions d\'utilisation</string>
+    <string name="settings_version">Version %1$s</string>
+
+    <!-- Languages -->
+    <string name="language_english">Anglais</string>
+    <string name="language_irish">Irlandais</string>
+    <string name="language_french">Français</string>
+    <string name="language_german">Allemand</string>
+
+    <!-- Search -->
+    <string name="search">Rechercher</string>
+
+    <!-- Content Descriptions -->
+    <string name="cd_toggle_flashlight">Activer/désactiver la lampe torche</string>
+    <string name="cd_visit_website">Visiter le site web</string>
+    <string name="cd_follow_instagram">Suivre sur Instagram</string>
+    <string name="cd_follow_facebook">Suivre sur Facebook</string>
+    <string name="cd_view_tripadvisor">Voir sur TripAdvisor</string>
+    <string name="cd_get_directions">Obtenir l\'itinéraire</string>
+    <string name="cd_back_to_camera">Retour à l\'appareil photo</string>
+    <string name="cd_switch_camera">Changer de caméra</string>
+    <string name="cd_take_photo">Prendre une photo</string>
+    <string name="cd_gallery">Ouvrir la galerie</string>
+
+    <!-- Camera and Permissions -->
+    <string name="error_camera_permission">L\'autorisation de la caméra est requise</string>
+    <string name="error_storage_permission">L\'autorisation de stockage est requise pour accéder à la galerie</string>
+    <string name="error_camera_start">Échec du démarrage de la caméra</string>
+    <string name="msg_photo_captured">Photo capturée !</string>
+    <string name="error_photo_capture">Échec de la capture photo</string>
+    <string name="error_no_image">Aucune image à partager</string>
+    <string name="title_share_image">Partager l\'image</string>
+    <string name="msg_qr_scanned">Scanné : %1$s</string>
+
+    <!-- Feedback -->
+    <string name="feedback_email">eamonngorman21@gmail.com</string>
+    <string name="feedback_subject">Avis : %1$s</string>
+    <string name="feedback_body">Veuillez donner votre avis sur %1$s :\n\n</string>
+    <string name="feedback_chooser_title">Envoyer l\'avis via :</string>
+    <string name="feedback_title">Donner votre avis</string>
+    <string name="feedback_comment_hint">Vos commentaires (facultatif)</string>
+    <string name="submit">Soumettre</string>
+    <string name="cancel">Annuler</string>
+
+    <!-- Share Screen -->
+    <string name="share_instructions">Capturez votre moment légendaire avec notre cadre spécial International Rugby Experience !</string>
+
+    <!-- Audio Guide -->
+    <string name="audio_guide_description">Icône du guide audio</string>
+    <string name="audio_guide_available">Guide audio disponible</string>
+    <string name="play_audio">Lire l\'audio</string>
+
+    <!-- Accessibility -->
+    <string name="exhibit_image_description">Image de l\'exposition</string>
+    <string name="exhibit_title_description">Titre de l\'exposition</string>
+    <string name="exhibit_description_description">Description détaillée de l\'exposition</string>
+
+
+    <string name="retake">Reprendre</string>
+
+</resources> 
