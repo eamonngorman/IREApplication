@@ -222,4 +222,18 @@
     <string name="exhibit_description_description">Exhibit Description</string>
 
     <string name="retake">Retake</string>
+
+    <!-- QR Scanner -->
+    <string name="qr_code_detected">QR Code Detected</string>
+    <string name="qr_content_type_url">URL Detected</string>
+    <string name="qr_content_type_text">Text Content</string>
+    <string name="qr_copy_content">Copy Content</string>
+    <string name="qr_open_link">Open Link</string>
+    <string name="qr_scan_again">Scan Again</string>
+    <string name="qr_copied_to_clipboard">Content copied to clipboard</string>
+    <string name="qr_unable_to_open_url">Unable to open URL</string>
+    <string name="qr_position_instruction">Position the QR code within the frame</string>
+    <string name="qr_invalid_format">Invalid QR code format</string>
+    <string name="qr_exhibit_not_found">Exhibit not found</string>
+    <string name="qr_error_processing">Error processing QR code</string>
 </resources>

@@ -147,9 +147,24 @@ class SplashActivity : AppCompatActivity() {
             imageResources.distinct().map { resourceId ->
                 async(Dispatchers.Main) {
                     try {
+                        // Skip XML drawable preloading to avoid Glide errors
+                        val resourceTypeName = resources.getResourceTypeName(resourceId)
+                        if (resourceTypeName == "drawable") {
+                            val resourceEntryName = resources.getResourceEntryName(resourceId)
+                            // Skip XML drawables to avoid Glide issues
+                            if (resourceEntryName.endsWith("_image") || 
+                                resourceEntryName == "placeholder_image" || 
+                                resourceEntryName == "error_image") {
+                                Log.d(TAG, "Skipping XML drawable: $resourceEntryName")
+                                return@async
+                            }
+                        }
+                        
+                        // Only preload bitmap images
                         Glide.with(this@SplashActivity)
                             .load(resourceId)
-                            .diskCacheStrategy(DiskCacheStrategy.ALL)  // Cache both original & resized
+                            .skipMemoryCache(false)  // Use memory cache
+                            .diskCacheStrategy(DiskCacheStrategy.RESOURCE)  // Cache only final images
                             .preload()
                         Log.d(TAG, "Preloaded image: $resourceId")
                     } catch (e: Exception) {

@@ -4,12 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.ireapplication.R
 import com.example.ireapplication.databinding.FragmentExhibitDetailBinding
 import com.example.ireapplication.ui.components.FeedbackDialog
+import com.example.ireapplication.util.ErrorHandler
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
+import android.graphics.drawable.Drawable
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -35,14 +42,30 @@ class ExhibitDetailFragment : Fragment() {
         setupAnimations()
         
         // Load exhibit data based on ID from arguments
-        arguments?.getInt("exhibitId")?.let { exhibitId ->
+        arguments?.getInt("exhibitId", -1)?.let { exhibitId ->
+            if (exhibitId == -1) {
+                ErrorHandler.logDebug("No exhibit ID provided in arguments")
+                Toast.makeText(context, "Error: No exhibit ID provided", Toast.LENGTH_SHORT).show()
+                return@let
+            }
+            
+            ErrorHandler.logDebug("Loading exhibit with ID: $exhibitId")
             viewModel.loadExhibit(exhibitId)
+        } ?: run {
+            ErrorHandler.logDebug("No arguments provided to ExhibitDetailFragment")
+            Toast.makeText(context, "Error: No arguments provided", Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun setupObservers() {
         viewModel.exhibit.observe(viewLifecycleOwner) { exhibit ->
-            exhibit?.let { updateUI(it) }
+            if (exhibit != null) {
+                ErrorHandler.logDebug("Exhibit loaded: ${exhibit.name}, ID: ${exhibit.id}")
+                updateUI(exhibit)
+            } else {
+                ErrorHandler.logDebug("Failed to load exhibit")
+                Toast.makeText(context, "Error: Failed to load exhibit", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -83,11 +106,40 @@ class ExhibitDetailFragment : Fragment() {
             exhibitTitle.text = exhibit.name
             exhibitDescription.text = exhibit.fullDescription
             
-            Glide.with(this@ExhibitDetailFragment)
-                .load(exhibit.imageResourceId)
-                .placeholder(R.drawable.placeholder_image)
-                .error(R.drawable.error_image)
-                .into(exhibitImage)
+            // Show loading indicator
+            progressBar.visibility = View.VISIBLE
+            
+            try {
+                // Use a simpler approach without complex listeners
+                Glide.with(requireContext())
+                    .load(exhibit.imageResourceId)
+                    .placeholder(R.drawable.placeholder)
+                    .error(R.drawable.placeholder)
+                    .centerCrop()
+                    .into(object : com.bumptech.glide.request.target.CustomTarget<Drawable>() {
+                        override fun onResourceReady(resource: Drawable, transition: com.bumptech.glide.request.transition.Transition<in Drawable>?) {
+                            exhibitImage.setImageDrawable(resource)
+                            progressBar.visibility = View.GONE
+                            ErrorHandler.logDebug("Image loaded successfully: ${exhibit.name}")
+                        }
+                        
+                        override fun onLoadFailed(errorDrawable: Drawable?) {
+                            progressBar.visibility = View.GONE
+                            ErrorHandler.logDebug("Image load failed for: ${exhibit.name}")
+                        }
+                        
+                        override fun onLoadCleared(placeholder: Drawable?) {
+                            // This is called when the view is detached
+                            progressBar.visibility = View.GONE
+                        }
+                    })
+                
+                ErrorHandler.logDebug("Requested image loading for: ${exhibit.name}, resource ID: ${exhibit.imageResourceId}")
+            } catch (e: Exception) {
+                progressBar.visibility = View.GONE
+                ErrorHandler.logDebug("Image loading error: ${e.message}")
+                exhibitImage.setImageResource(R.drawable.placeholder)
+            }
         }
     }
 

@@ -222,4 +222,19 @@
     <string name="exhibit_description_description">Ausstellungsbeschreibung</string>
 
     <string name="retake">Neu aufnehmen</string>
+
+    <!-- QR Scanner -->
+    <string name="qr_code_detected">QR-Code erkannt</string>
+    <string name="qr_content_type_url">URL erkannt</string>
+    <string name="qr_content_type_text">Textinhalt</string>
+    <string name="qr_copy_content">Inhalt kopieren</string>
+    <string name="qr_open_link">Link öffnen</string>
+    <string name="qr_scan_again">Erneut scannen</string>
+    <string name="qr_copied_to_clipboard">Inhalt in die Zwischenablage kopiert</string>
+    <string name="qr_unable_to_open_url">URL kann nicht geöffnet werden</string>
+    <string name="qr_position_instruction">Positionieren Sie den QR-Code innerhalb des Rahmens</string>
+    <string name="qr_invalid_format">Ungültiges QR-Code-Format</string>
+    <string name="qr_exhibit_not_found">Ausstellung nicht gefunden</string>
+    <string name="qr_error_processing">Fehler bei der Verarbeitung des QR-Codes</string>
+
 </resources>
